@@ -10,6 +10,7 @@ authors:
 version: 0.1.0
 date-released: 2026-11-21
 license: AGPL-3.0-or-later
+doi: 10.5281/zenodo.24430370
 repository-code: "https://github.com/amurlaniakea/deeptime-atlas"
 url: "https://amurlaniakea.github.io/deeptime-atlas/"
 keywords:

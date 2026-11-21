@@ -4,6 +4,7 @@
 
 [![CI](https://github.com/amurlaniakea/deeptime-atlas/actions/workflows/ci.yml/badge.svg)](https://github.com/amurlaniakea/deeptime-atlas/actions/workflows/ci.yml)
 [![License: AGPL-3.0-or-later](https://img.shields.io/badge/license-AGPL--3.0--or--later-blue.svg)](LICENSE)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24430370.svg)](https://doi.org/10.5281/zenodo.24430370)
 
 An interactive, sourced atlas of cosmic and Earth history, built for university classrooms.
 Available in **Spanish, English and French**.
@@ -61,7 +62,7 @@ Stack: Vite, TypeScript (strict), Vitest. No runtime dependencies.
 
 ## How to cite
 
-See [`CITATION.cff`](CITATION.cff). A Zenodo DOI will be added with the first archived release.
+See [`CITATION.cff`](CITATION.cff). Cite all versions with the Zenodo concept DOI [10.5281/zenodo.24430370](https://doi.org/10.5281/zenodo.24430370).
 
 ## License
 
