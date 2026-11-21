@@ -1,0 +1,62 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 Pedro Sordo Martínez <amurlaniakea@gmail.com>
+// Ages: ICS International Chronostratigraphic Chart v2024/12 (read from the official PDF).
+// Colours marked official follow CCGM/ICS; all others are derived shades (see docs/DATA_POLICY.md).
+import type { RawUnit } from './types';
+
+export const EARTH_AGE_MA = 4567;
+
+const S = ['ics-chart-2024-12'];
+
+export const RAW_UNITS: RawUnit[] = [
+  { id: 'hadean', rank: 'eon', parent: null, startMa: 4567, informal: true, color: '#AE027E', names: { es: 'Hadeico', en: 'Hadean', fr: 'Hadéen' }, sources: S },
+  { id: 'archean', rank: 'eon', parent: null, startMa: 4031, startErr: 3, color: '#F0047F', names: { es: 'Arcaico', en: 'Archean', fr: 'Archéen' }, sources: S },
+  { id: 'proterozoic', rank: 'eon', parent: null, startMa: 2500, color: '#F73563', names: { es: 'Proterozoico', en: 'Proterozoic', fr: 'Protérozoïque' }, sources: S },
+  { id: 'phanerozoic', rank: 'eon', parent: null, startMa: 538.8, startErr: 0.6, color: '#9AD9DD', names: { es: 'Fanerozoico', en: 'Phanerozoic', fr: 'Phanérozoïque' }, sources: S },
+  { id: 'eoarchean', rank: 'era', parent: 'archean', startMa: 4031, startErr: 3, names: { es: 'Eoarcaico', en: 'Eoarchean', fr: 'Éoarchéen' }, sources: S },
+  { id: 'paleoarchean', rank: 'era', parent: 'archean', startMa: 3600, names: { es: 'Paleoarcaico', en: 'Paleoarchean', fr: 'Paléoarchéen' }, sources: S },
+  { id: 'mesoarchean', rank: 'era', parent: 'archean', startMa: 3200, names: { es: 'Mesoarcaico', en: 'Mesoarchean', fr: 'Mésoarchéen' }, sources: S },
+  { id: 'neoarchean', rank: 'era', parent: 'archean', startMa: 2800, names: { es: 'Neoarcaico', en: 'Neoarchean', fr: 'Néoarchéen' }, sources: S },
+  { id: 'paleoproterozoic', rank: 'era', parent: 'proterozoic', startMa: 2500, names: { es: 'Paleoproterozoico', en: 'Paleoproterozoic', fr: 'Paléoprotérozoïque' }, sources: S },
+  { id: 'mesoproterozoic', rank: 'era', parent: 'proterozoic', startMa: 1600, names: { es: 'Mesoproterozoico', en: 'Mesoproterozoic', fr: 'Mésoprotérozoïque' }, sources: S },
+  { id: 'neoproterozoic', rank: 'era', parent: 'proterozoic', startMa: 1000, names: { es: 'Neoproterozoico', en: 'Neoproterozoic', fr: 'Néoprotérozoïque' }, sources: S },
+  { id: 'siderian', rank: 'period', parent: 'paleoproterozoic', startMa: 2500, names: { es: 'Sidérico', en: 'Siderian', fr: 'Sidérien' }, sources: S },
+  { id: 'rhyacian', rank: 'period', parent: 'paleoproterozoic', startMa: 2300, names: { es: 'Riácico', en: 'Rhyacian', fr: 'Rhyacien' }, sources: S },
+  { id: 'orosirian', rank: 'period', parent: 'paleoproterozoic', startMa: 2050, names: { es: 'Orosírico', en: 'Orosirian', fr: 'Orosirien' }, sources: S },
+  { id: 'statherian', rank: 'period', parent: 'paleoproterozoic', startMa: 1800, names: { es: 'Estatérico', en: 'Statherian', fr: 'Statherien' }, sources: S },
+  { id: 'calymmian', rank: 'period', parent: 'mesoproterozoic', startMa: 1600, names: { es: 'Calímico', en: 'Calymmian', fr: 'Calymmien' }, sources: S },
+  { id: 'ectasian', rank: 'period', parent: 'mesoproterozoic', startMa: 1400, names: { es: 'Ectásico', en: 'Ectasian', fr: 'Ectasien' }, sources: S },
+  { id: 'stenian', rank: 'period', parent: 'mesoproterozoic', startMa: 1200, names: { es: 'Esténico', en: 'Stenian', fr: 'Sténien' }, sources: S },
+  { id: 'tonian', rank: 'period', parent: 'neoproterozoic', startMa: 1000, names: { es: 'Tónico', en: 'Tonian', fr: 'Tonien' }, sources: S },
+  { id: 'cryogenian', rank: 'period', parent: 'neoproterozoic', startMa: 720, approx: true, names: { es: 'Criogénico', en: 'Cryogenian', fr: 'Cryogénien' }, sources: S },
+  { id: 'ediacaran', rank: 'period', parent: 'neoproterozoic', startMa: 635, approx: true, names: { es: 'Ediacárico', en: 'Ediacaran', fr: 'Édiacarien' }, sources: S },
+  { id: 'paleozoic', rank: 'era', parent: 'phanerozoic', startMa: 538.8, startErr: 0.6, color: '#99C08D', names: { es: 'Paleozoico', en: 'Paleozoic', fr: 'Paléozoïque' }, sources: S },
+  { id: 'mesozoic', rank: 'era', parent: 'phanerozoic', startMa: 251.902, startErr: 0.024, color: '#67C5CA', names: { es: 'Mesozoico', en: 'Mesozoic', fr: 'Mésozoïque' }, sources: S },
+  { id: 'cenozoic', rank: 'era', parent: 'phanerozoic', startMa: 66.0, color: '#F2F91D', names: { es: 'Cenozoico', en: 'Cenozoic', fr: 'Cénozoïque' }, sources: S },
+  { id: 'cambrian', rank: 'period', parent: 'paleozoic', startMa: 538.8, startErr: 0.6, color: '#7FA056', names: { es: 'Cámbrico', en: 'Cambrian', fr: 'Cambrien' }, sources: S },
+  { id: 'ordovician', rank: 'period', parent: 'paleozoic', startMa: 486.85, startErr: 1.5, color: '#009270', names: { es: 'Ordovícico', en: 'Ordovician', fr: 'Ordovicien' }, sources: S },
+  { id: 'silurian', rank: 'period', parent: 'paleozoic', startMa: 443.1, startErr: 0.9, color: '#B3E1B6', names: { es: 'Silúrico', en: 'Silurian', fr: 'Silurien' }, sources: S },
+  { id: 'devonian', rank: 'period', parent: 'paleozoic', startMa: 419.62, startErr: 1.36, color: '#CB8C37', names: { es: 'Devónico', en: 'Devonian', fr: 'Dévonien' }, sources: S },
+  { id: 'carboniferous', rank: 'period', parent: 'paleozoic', startMa: 358.86, startErr: 0.19, color: '#67A599', names: { es: 'Carbonífero', en: 'Carboniferous', fr: 'Carbonifère' }, sources: S },
+  { id: 'permian', rank: 'period', parent: 'paleozoic', startMa: 298.9, startErr: 0.15, color: '#F04028', names: { es: 'Pérmico', en: 'Permian', fr: 'Permien' }, sources: S },
+  { id: 'triassic', rank: 'period', parent: 'mesozoic', startMa: 251.902, startErr: 0.024, color: '#812B92', names: { es: 'Triásico', en: 'Triassic', fr: 'Trias' }, sources: S },
+  { id: 'jurassic', rank: 'period', parent: 'mesozoic', startMa: 201.4, startErr: 0.2, color: '#34B2C9', names: { es: 'Jurásico', en: 'Jurassic', fr: 'Jurassique' }, sources: S },
+  { id: 'cretaceous', rank: 'period', parent: 'mesozoic', startMa: 143.1, startErr: 0.6, color: '#7FC64E', names: { es: 'Cretácico', en: 'Cretaceous', fr: 'Crétacé' }, sources: S },
+  { id: 'paleogene', rank: 'period', parent: 'cenozoic', startMa: 66.0, color: '#FD9A52', names: { es: 'Paleógeno', en: 'Paleogene', fr: 'Paléogène' }, sources: S },
+  { id: 'neogene', rank: 'period', parent: 'cenozoic', startMa: 23.04, color: '#FFE619', names: { es: 'Neógeno', en: 'Neogene', fr: 'Néogène' }, sources: S },
+  { id: 'quaternary', rank: 'period', parent: 'cenozoic', startMa: 2.58, color: '#F9F97F', names: { es: 'Cuaternario', en: 'Quaternary', fr: 'Quaternaire' }, sources: S },
+  { id: 'paleocene', rank: 'epoch', parent: 'paleogene', startMa: 66.0, color: '#FDA75F', names: { es: 'Paleoceno', en: 'Paleocene', fr: 'Paléocène' }, sources: S },
+  { id: 'eocene', rank: 'epoch', parent: 'paleogene', startMa: 56.0, color: '#FDB46C', names: { es: 'Eoceno', en: 'Eocene', fr: 'Éocène' }, sources: S },
+  { id: 'oligocene', rank: 'epoch', parent: 'paleogene', startMa: 33.9, color: '#FDC07A', names: { es: 'Oligoceno', en: 'Oligocene', fr: 'Oligocène' }, sources: S },
+  { id: 'miocene', rank: 'epoch', parent: 'neogene', startMa: 23.04, color: '#FFFF00', names: { es: 'Mioceno', en: 'Miocene', fr: 'Miocène' }, sources: S },
+  { id: 'pliocene', rank: 'epoch', parent: 'neogene', startMa: 5.333, color: '#FFFF99', names: { es: 'Plioceno', en: 'Pliocene', fr: 'Pliocène' }, sources: S },
+  { id: 'pleistocene', rank: 'epoch', parent: 'quaternary', startMa: 2.58, color: '#FFF2AE', names: { es: 'Pleistoceno', en: 'Pleistocene', fr: 'Pléistocène' }, sources: S },
+  { id: 'holocene', rank: 'epoch', parent: 'quaternary', startMa: 0.0117, color: '#FEF2E0', names: { es: 'Holoceno', en: 'Holocene', fr: 'Holocène' }, sources: S },
+  { id: 'gelasian', rank: 'age', parent: 'pleistocene', startMa: 2.58, names: { es: 'Gelasiense', en: 'Gelasian', fr: 'Gélasien' }, sources: S },
+  { id: 'calabrian', rank: 'age', parent: 'pleistocene', startMa: 1.8, names: { es: 'Calabriense', en: 'Calabrian', fr: 'Calabrien' }, sources: S },
+  { id: 'chibanian', rank: 'age', parent: 'pleistocene', startMa: 0.774, names: { es: 'Chibaniense', en: 'Chibanian', fr: 'Chibanien' }, sources: S },
+  { id: 'late-pleistocene', rank: 'age', parent: 'pleistocene', startMa: 0.129, names: { es: 'Pleistoceno superior', en: 'Late (Upper) Pleistocene', fr: 'Pléistocène supérieur' }, sources: S },
+  { id: 'greenlandian', rank: 'age', parent: 'holocene', startMa: 0.0117, names: { es: 'Groenlandiense', en: 'Greenlandian', fr: 'Groenlandien' }, sources: S },
+  { id: 'northgrippian', rank: 'age', parent: 'holocene', startMa: 0.0082, names: { es: 'Norgripiense', en: 'Northgrippian', fr: 'Norgrippien' }, sources: S },
+  { id: 'meghalayan', rank: 'age', parent: 'holocene', startMa: 0.0042, names: { es: 'Megalayense', en: 'Meghalayan', fr: 'Meghalayen' }, sources: S },
+];

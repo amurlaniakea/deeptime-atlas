@@ -1,0 +1,70 @@
+# Deep Time Atlas
+
+[English](README.md) · [Español](README.es.md) · [Français](README.fr.md)
+
+[![CI](https://github.com/amurlaniakea/deeptime-atlas/actions/workflows/ci.yml/badge.svg)](https://github.com/amurlaniakea/deeptime-atlas/actions/workflows/ci.yml)
+[![License: AGPL-3.0-or-later](https://img.shields.io/badge/license-AGPL--3.0--or--later-blue.svg)](LICENSE)
+
+An interactive, sourced atlas of cosmic and Earth history, built for university classrooms.
+Available in **Spanish, English and French**.
+
+**Live demo:** https://amurlaniakea.github.io/deeptime-atlas/
+
+## Three scales, one story
+
+| Part | Content | Status |
+|---|---|---|
+| Cosmic history | From the Big Bang to the Solar System and the Earth | planned for v0.4 |
+| Geological time | Eons, eras, periods and epochs; mass extinctions; glaciations | **v0.1 available (structure)**, curves and events in v0.3 |
+| Holocene and humankind | Close-up of the present epoch, the Pleistocene hominin record and the eras of civilisation | planned for v0.5 |
+
+## What v0.1 does
+
+- A stratigraphic column **drawn to scale**: click a layer to zoom from eon to era, period, epoch and age.
+- For every unit: begin and end ages with the published uncertainty, duration, share of Earth history
+  and a "24-hour clock" (if Earth's history were one day, when does the unit start?).
+- Shareable links to any unit (`#phanerozoic`) and to a language (`?lang=fr`).
+- Keyboard-accessible layer list, colour-blind-safe text contrast, dark mode, reduced-motion support.
+- No network requests at run time and a strict Content-Security-Policy.
+
+## Data and verification
+
+Ages come from the **ICS International Chronostratigraphic Chart v2024/12**
+(https://stratigraphy.org/ICSchart/ChronostratChart2024-12.pdf; Cohen et al. 2025,
+[doi:10.18814/epiiugs/2025/025001](https://doi.org/10.18814/epiiugs/2025/025001)).
+Each dataset entry lists its sources and automated tests enforce it. See
+[`docs/DATA_POLICY.md`](docs/DATA_POLICY.md) for the policy and the verification log.
+
+## Development
+
+```bash
+npm ci
+npm run dev
+npm run typecheck
+npm test
+npm run build
+```
+
+Stack: Vite, TypeScript (strict), Vitest. No runtime dependencies.
+
+## Roadmap
+
+| Version | Content |
+|---|---|
+| v0.1 | Skeleton, i18n, sourced data schema, CI, Live Demo, geological column |
+| v0.2 | Geological timeline refinements and more stages |
+| v0.3 | Climate curves, mass extinctions, glaciations, key events |
+| v0.4 | Cosmic history (logarithmic scale and cosmic calendar) |
+| v0.5 | Holocene and humankind (Pleistocene fossil sites, Atapuerca, Göbekli Tepe, civilisations) |
+| v0.6 | Classroom mode: teaching guide and quizzes |
+| v1.0 | Full source audit and Zenodo DOI |
+
+## How to cite
+
+See [`CITATION.cff`](CITATION.cff). A Zenodo DOI will be added with the first archived release.
+
+## License
+
+AGPL-3.0-or-later. See [`LICENSE`](LICENSE).
+
+© 2026 Pedro Sordo Martínez <amurlaniakea@gmail.com>

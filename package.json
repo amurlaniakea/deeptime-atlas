@@ -1,0 +1,25 @@
+{
+  "name": "deeptime-atlas",
+  "version": "0.1.0",
+  "description": "Interactive, sourced atlas of cosmic and Earth history (es/en/fr).",
+  "private": true,
+  "type": "module",
+  "license": "AGPL-3.0-or-later",
+  "author": "Pedro Sordo Martínez <amurlaniakea@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amurlaniakea/deeptime-atlas.git"
+  },
+  "scripts": {
+    "dev": "vite",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.1"
+  }
+}

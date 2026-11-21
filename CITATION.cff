@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this software or its data in teaching or research, please cite it as below."
+title: "Deep Time Atlas"
+abstract: "Interactive, sourced atlas of cosmic and Earth history in Spanish, English and French."
+type: software
+authors:
+  - family-names: "Sordo Martínez"
+    given-names: "Pedro"
+    email: "amurlaniakea@gmail.com"
+version: 0.1.0
+date-released: 2026-11-21
+license: AGPL-3.0-or-later
+repository-code: "https://github.com/amurlaniakea/deeptime-atlas"
+url: "https://amurlaniakea.github.io/deeptime-atlas/"
+keywords:
+  - geologic time scale
+  - Earth history
+  - cosmology
+  - education
+  - data visualization

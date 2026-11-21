@@ -1,0 +1,114 @@
+/* SPDX-License-Identifier: AGPL-3.0-or-later */
+/* Copyright (C) 2026 Pedro Sordo Martínez <amurlaniakea@gmail.com> */
+:root {
+  --ground: #e3e6df;
+  --panel: #f2f4ee;
+  --ink: #16202a;
+  --ink-soft: #46535f;
+  --rule: #b7bfb5;
+  --focus: #0a58ca;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ground: #10171e;
+    --panel: #18222b;
+    --ink: #e8ece6;
+    --ink-soft: #a8b4bd;
+    --rule: #33424e;
+    --focus: #7db2ff;
+  }
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font: 400 1rem/1.55 var(--sans);
+}
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+button { font: inherit; color: inherit; cursor: pointer; }
+a { color: inherit; text-underline-offset: 0.18em; }
+
+.skip { position: absolute; left: -999px; top: 0; background: var(--panel); padding: 0.5rem 1rem; z-index: 10; }
+.skip:focus { left: 0.5rem; top: 0.5rem; }
+
+.site-header, main, .site-footer { width: min(1180px, 100% - 2.5rem); margin-inline: auto; }
+.site-header { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1rem 2rem; padding: 2rem 0 1.25rem; }
+.site-header h1 { margin: 0; font: 700 clamp(2rem, 5vw, 3.4rem)/1.02 var(--serif); letter-spacing: -0.01em; }
+.tagline { margin: 0.4rem 0 0; max-width: 46ch; color: var(--ink-soft); }
+
+.lang { display: inline-flex; border: 2px solid var(--ink); }
+.lang-btn { background: transparent; border: 0; padding: 0.4rem 0.8rem; }
+.lang-btn + .lang-btn { border-left: 2px solid var(--ink); }
+.lang-btn[aria-pressed="true"] { background: var(--ink); color: var(--ground); }
+
+.section-title { margin: 0 0 0.4rem; font: 700 1.6rem/1.2 var(--serif); }
+.hint { margin: 0 0 1.25rem; max-width: 68ch; color: var(--ink-soft); }
+
+.explorer { display: grid; grid-template-columns: minmax(230px, 310px) minmax(0, 1fr); gap: 2.25rem; align-items: start; }
+
+/* ---- stratigraphic core ---- */
+.core-col { display: flex; flex-direction: column; gap: 0.6rem; }
+.btn-zoom-out { align-self: flex-start; background: var(--panel); border: 2px solid var(--ink); padding: 0.3rem 0.8rem; }
+.btn-zoom-out:disabled { opacity: 0.4; cursor: default; }
+.core { position: relative; height: clamp(420px, 68vh, 680px); border: 2px solid var(--ink); background: var(--panel); overflow: hidden; }
+.stratum { position: absolute; left: 0; right: 0; display: flex; flex-direction: column; padding: 3px 10px; overflow: hidden; cursor: pointer; box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.3); line-height: 1.15; }
+.stratum:hover { filter: brightness(1.07); }
+.stratum.is-current { box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.95), inset 0 0 0 5px rgba(0, 0, 0, 0.85); }
+.stratum-name { font-weight: 600; font-size: 0.95rem; }
+.stratum-range { font-size: 0.78rem; opacity: 0.85; font-variant-numeric: tabular-nums; }
+
+.layers-title { margin: 0.6rem 0 0; font: 700 1rem/1.3 var(--serif); }
+.layers { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.3rem; }
+.layer { width: 100%; display: grid; grid-template-columns: 14px 1fr auto; align-items: center; gap: 0.6rem; text-align: left; background: transparent; border: 1px solid var(--rule); padding: 0.3rem 0.5rem; }
+.layer[aria-current="true"] { border-color: var(--ink); background: var(--panel); font-weight: 600; }
+.swatch { width: 14px; height: 14px; border: 1px solid rgba(0, 0, 0, 0.45); }
+.layer-range { font-size: 0.78rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+
+/* ---- detail ---- */
+.crumbs ol { list-style: none; margin: 0 0 1rem; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 0.5rem; }
+.crumbs li + li::before { content: "/"; margin-right: 0.5rem; color: var(--ink-soft); }
+.crumb { background: none; border: 0; padding: 0; text-decoration: underline; text-underline-offset: 0.18em; }
+.unit-rank { margin: 0; color: var(--ink-soft); }
+.unit-name { margin: 0.1rem 0 0.6rem; padding-left: 0.9rem; border-left: 10px solid var(--unit-color, var(--ink)); font: 700 clamp(2.2rem, 5vw, 3.6rem)/1.04 var(--serif); }
+.badges { margin: 0 0 1rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.badges:empty { display: none; }
+.badge { border: 1px solid var(--ink); padding: 0.05rem 0.55rem; font-size: 0.85rem; }
+
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1rem 1.5rem; margin: 0 0 1.5rem; padding: 1rem 0; border-block: 1px solid var(--rule); }
+.facts dt { color: var(--ink-soft); font-size: 0.9rem; }
+.facts dd { margin: 0; font: 600 1.35rem/1.25 var(--serif); font-variant-numeric: tabular-nums; }
+
+.clock { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1.5rem; }
+.clock p { margin: 0; max-width: 36ch; }
+.clock-ring { width: 128px; height: 128px; flex: none; color: var(--ink); }
+.clock-time { display: block; font: 700 1.8rem/1.2 var(--serif); font-variant-numeric: tabular-nums; }
+
+.sources-title { margin: 0 0 0.4rem; font: 700 1rem/1.3 var(--serif); }
+.sources { margin: 0 0 1rem; padding-left: 1.1rem; font-size: 0.92rem; }
+.accessed { color: var(--ink-soft); }
+.age-note { margin: 0; max-width: 70ch; font-size: 0.88rem; color: var(--ink-soft); }
+
+/* ---- parts ---- */
+.parts { margin-top: 3.5rem; }
+.parts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin-top: 1rem; }
+.part { background: var(--panel); border-top: 8px solid var(--part-color); padding: 1rem 1.1rem 1.1rem; }
+.part h3 { margin: 0 0 0.3rem; font: 700 1.3rem/1.2 var(--serif); }
+.part p { margin: 0 0 0.6rem; }
+.part-status { color: var(--ink-soft); font-size: 0.9rem; margin: 0; }
+
+.site-footer { margin-top: 3.5rem; padding: 1.5rem 0 2.5rem; border-top: 1px solid var(--rule); color: var(--ink-soft); font-size: 0.9rem; }
+.site-footer p { margin: 0 0 0.3rem; }
+
+@media (max-width: 760px) {
+  .explorer { grid-template-columns: 1fr; gap: 1.5rem; }
+  .core { height: 56vh; min-height: 360px; }
+  .clock { flex-direction: column; align-items: flex-start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
