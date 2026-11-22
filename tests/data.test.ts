@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 // Copyright (C) 2026 Pedro Sordo Martínez <amurlaniakea@gmail.com>
 import { describe, expect, it } from 'vitest';
+import { BOUNDARIES } from '../src/data/boundaries';
 import { SOURCES, SOURCES_BY_ID } from '../src/data/sources';
 import { EARTH_AGE_MA, RAW_UNITS } from '../src/data/units';
 import { ROOT_ID, buildTree } from '../src/lib/timescale';
@@ -76,4 +77,52 @@ describe('dataset integrity', () => {
   it('uncertainties are positive numbers', () => {
     for (const u of RAW_UNITS) if (u.startErr !== undefined) expect(u.startErr, u.id).toBeGreaterThan(0);
   });
+
+  it('the Cenozoic is described down to stage level', () => {
+    for (const epoch of ['paleocene', 'eocene', 'oligocene', 'miocene', 'pliocene']) {
+      expect(tree.get(epoch)!.children.length, epoch).toBeGreaterThanOrEqual(2);
+    }
+    expect(tree.get('pliocene')!.children).toEqual(['zanclean', 'piacenzian']);
+    expect(tree.get('piacenzian')!.endMa).toBe(2.58);
+  });
 });
+
+describe('boundary definitions', () => {
+  const tree = buildTree(RAW_UNITS);
+
+  it('are unique and reference existing units and sources', () => {
+    expect(new Set(BOUNDARIES.map((b) => b.id)).size).toBe(BOUNDARIES.length);
+    for (const b of BOUNDARIES) {
+      expect(b.appliesTo.length, b.id).toBeGreaterThan(0);
+      for (const id of b.appliesTo) expect(tree.has(id), `${b.id} -> ${id}`).toBe(true);
+      expect(b.sources.length, b.id).toBeGreaterThan(0);
+      for (const s of b.sources) expect(SOURCES_BY_ID.has(s), `${b.id} -> ${s}`).toBe(true);
+    }
+  });
+
+  it('all units sharing a boundary start at the same age', () => {
+    for (const b of BOUNDARIES) {
+      const ages = new Set(b.appliesTo.map((id) => tree.get(id)!.startMa));
+      expect(ages.size, b.id).toBe(1);
+    }
+  });
+
+  it('a unit has at most one boundary definition', () => {
+    const seen = new Set<string>();
+    for (const b of BOUNDARIES) for (const id of b.appliesTo) {
+      expect(seen.has(id), id).toBe(false);
+      seen.add(id);
+    }
+  });
+
+  it('have marker and location in es, en and fr, and a sane ratification year', () => {
+    for (const b of BOUNDARIES) {
+      for (const l of ['es', 'en', 'fr'] as const) {
+        expect(b.marker[l].trim().length, `${b.id}.marker.${l}`).toBeGreaterThan(10);
+        expect(b.location[l].trim().length, `${b.id}.location.${l}`).toBeGreaterThan(3);
+      }
+      if (b.ratified !== undefined) expect(b.ratified).toBeGreaterThan(1970);
+    }
+  });
+});
+

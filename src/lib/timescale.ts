@@ -170,3 +170,31 @@ export function formatAgeErr(ma: number, errMa: number | undefined, lang: string
 export function formatShare(fraction: number, lang: string): string {
   return new Intl.NumberFormat(lang, { style: 'percent', maximumSignificantDigits: 2 }).format(fraction);
 }
+
+// ---------- comparison ----------
+export interface Comparison {
+  longer: Unit;
+  shorter: Unit;
+  /** Duration of the longer unit divided by the duration of the shorter one (>= 1). */
+  ratio: number;
+}
+export const durationOf = (u: Unit): number => u.startMa - u.endMa;
+export function compareUnits(a: Unit, b: Unit): Comparison {
+  const [longer, shorter] = durationOf(a) >= durationOf(b) ? [a, b] : [b, a];
+  return { longer, shorter, ratio: durationOf(longer) / durationOf(shorter) };
+}
+export function formatRatio(ratio: number, lang: string): string {
+  return new Intl.NumberFormat(lang, { maximumSignificantDigits: 2 }).format(ratio);
+}
+/** Depth-first list (oldest first within each parent), excluding the root. */
+export function flatOrder(tree: Tree): Array<{ unit: Unit; depth: number }> {
+  const out: Array<{ unit: Unit; depth: number }> = [];
+  const walk = (id: string, depth: number): void => {
+    for (const cid of tree.get(id)!.children) {
+      out.push({ unit: tree.get(cid)!, depth });
+      walk(cid, depth + 1);
+    }
+  };
+  walk(ROOT_ID, 0);
+  return out;
+}

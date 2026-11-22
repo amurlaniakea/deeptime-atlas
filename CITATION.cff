@@ -7,8 +7,8 @@ authors:
   - family-names: "Sordo Martínez"
     given-names: "Pedro"
     email: "amurlaniakea@gmail.com"
-version: 0.1.0
-date-released: 2026-11-21
+version: 0.2.0
+date-released: 2026-11-22
 license: AGPL-3.0-or-later
 doi: 10.5281/zenodo.24430370
 repository-code: "https://github.com/amurlaniakea/deeptime-atlas"

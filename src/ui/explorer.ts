@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 // Copyright (C) 2026 Pedro Sordo Martínez <amurlaniakea@gmail.com>
+import { BOUNDARIES } from '../data/boundaries';
 import { SOURCES_BY_ID } from '../data/sources';
 import { EARTH_AGE_MA } from '../data/units';
 import type { Dict, Lang } from '../i18n';
@@ -202,9 +203,26 @@ export function mountExplorer(host: HTMLElement, opts: ExplorerOptions): { setCu
     clockText.append(dict['detail.clock'] + ' ', el('strong', 'clock-time', clockLabel(u.startMa)));
     clock.append(clockSvg(u), clockText);
 
+    const boundary = BOUNDARIES.find((b) => b.appliesTo.includes(u.id));
+    const boundaryBlock = el('section', 'boundary');
+    if (boundary) {
+      boundaryBlock.append(el('h3', 'sources-title', dict['boundary.title']));
+      const bl = el('dl', 'boundary-facts');
+      const row = (k: string, v: string): void => {
+        const wrap = el('div');
+        wrap.append(el('dt', undefined, k), el('dd', undefined, v));
+        bl.append(wrap);
+      };
+      row(dict['boundary.marker'], boundary.marker[lang]);
+      row(dict['boundary.location'], boundary.location[lang]);
+      if (boundary.ratified !== undefined) row(dict['boundary.ratified'], String(boundary.ratified));
+      if (boundary.reference) row(dict['boundary.reference'], boundary.reference);
+      boundaryBlock.append(bl);
+    }
+
     const srcTitle = el('h3', 'sources-title', dict['detail.sources']);
     const srcList = el('ul', 'sources');
-    for (const sid of u.sources) {
+    for (const sid of [...u.sources, ...(boundary ? boundary.sources : [])]) {
       const s = SOURCES_BY_ID.get(sid);
       if (!s) continue;
       const li = el('li');
@@ -215,7 +233,7 @@ export function mountExplorer(host: HTMLElement, opts: ExplorerOptions): { setCu
     }
     const note = el('p', 'age-note', dict['explorer.ageNote']);
 
-    detail.replaceChildren(nav, rank, title, badges, dl, clock, srcTitle, srcList, note);
+    detail.replaceChildren(nav, rank, title, badges, dl, clock, boundaryBlock, srcTitle, srcList, note);
   }
 
   // ----- transitions -----

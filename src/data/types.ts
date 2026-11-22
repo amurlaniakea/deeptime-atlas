@@ -32,3 +32,19 @@ export interface Source {
   /** ISO date when the numbers were last read from the source. */
   accessed: string;
 }
+
+/** How the base of one or more units is defined (GSSP), as printed by the ICS GSSP table. */
+export interface BoundaryDef {
+  id: string;
+  /** Units that share this base. A test checks that they all start at the same age. */
+  appliesTo: string[];
+  /** Primary marker / boundary level and correlation events, in the source's words (translated). */
+  marker: Names;
+  /** Reference section (place). */
+  location: Names;
+  /** Year of ratification, only when the source prints it unambiguously. */
+  ratified?: number;
+  /** Bibliographic reference printed by the source. */
+  reference?: string;
+  sources: string[];
+}

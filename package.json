@@ -1,6 +1,6 @@
 {
   "name": "deeptime-atlas",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Interactive, sourced atlas of cosmic and Earth history (es/en/fr).",
   "private": true,
   "type": "module",

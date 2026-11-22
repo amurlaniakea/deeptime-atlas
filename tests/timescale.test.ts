@@ -3,8 +3,8 @@
 import { describe, expect, it } from 'vitest';
 import { RAW_UNITS } from '../src/data/units';
 import {
-  ROOT_ID, buildTree, clockLabel, coreParentId, formatAge, formatAgeErr, formatShare, isAncestor,
-  lerpWindow, luminance, pathTo, textColorFor,
+  ROOT_ID, buildTree, clockLabel, compareUnits, coreParentId, durationOf, flatOrder, formatAge, formatAgeErr,
+  formatRatio, formatShare, isAncestor, lerpWindow, luminance, pathTo, textColorFor,
 } from '../src/lib/timescale';
 
 const tree = buildTree(RAW_UNITS);
@@ -73,5 +73,24 @@ describe('view helpers', () => {
     expect(textColorFor('#812B92')).toBe('#FFFFFF');
     expect(textColorFor('#FFFF00')).toBe('#16202A');
     expect(luminance('#FFFFFF')).toBeCloseTo(1, 5);
+  });
+});
+
+describe('comparison', () => {
+  it('compares durations regardless of argument order', () => {
+    const a = compareUnits(tree.get('cenozoic')!, tree.get('mesozoic')!);
+    const b = compareUnits(tree.get('mesozoic')!, tree.get('cenozoic')!);
+    expect(a.longer.id).toBe('mesozoic');
+    expect(b.longer.id).toBe('mesozoic');
+    expect(a.ratio).toBeCloseTo(185.902 / 66, 6);
+    expect(a.ratio).toBeGreaterThanOrEqual(1);
+    expect(formatRatio(a.ratio, 'en')).toBe('2.8');
+  });
+  it('lists every unit except the root in depth-first order', () => {
+    const flat = flatOrder(tree);
+    expect(flat.length).toBe(RAW_UNITS.length);
+    expect(flat[0]!.unit.id).toBe('hadean');
+    expect(flat.every((x) => x.unit.id !== ROOT_ID)).toBe(true);
+    expect(durationOf(tree.get('meghalayan')!)).toBeCloseTo(0.0042, 9);
   });
 });

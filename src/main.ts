@@ -4,6 +4,7 @@ import './style.css';
 import { RAW_UNITS } from './data/units';
 import { DICTS, LANGS, LANG_NAMES, detectLang, type Dict, type Lang } from './i18n';
 import { ROOT_ID, buildTree } from './lib/timescale';
+import { mountCompare } from './ui/compare';
 import { mountExplorer } from './ui/explorer';
 
 const tree = buildTree(RAW_UNITS);
@@ -80,6 +81,11 @@ function render(): void {
   const explorerHost = h('div', 'explorer');
   explorerSection.append(explorerHost);
 
+  const compareSection = h('section', 'compare');
+  compareSection.append(h('h2', 'section-title', dict['compare.title']), h('p', 'hint', dict['compare.hint']));
+  const compareHost = h('div', 'compare-box');
+  compareSection.append(compareHost);
+
   const parts = h('section', 'parts');
   parts.append(
     h('h2', 'section-title', dict['parts.title']),
@@ -91,7 +97,7 @@ function render(): void {
     part(dict, 'holocene', dict['status.planned'].replace('{v}', 'v0.5'), '#F2B84B'),
   );
   parts.append(grid);
-  main.append(explorerSection, parts);
+  main.append(explorerSection, compareSection, parts);
 
   const footer = h('footer', 'site-footer');
   const links = h('p');
@@ -102,6 +108,7 @@ function render(): void {
 
   app.replaceChildren(skip, header, main, footer);
 
+  mountCompare(compareHost, tree, lang, dict, ['cenozoic', 'mesozoic']);
   mountExplorer(explorerHost, {
     tree, lang, dict, initialId: currentId,
     onChange: (id) => { currentId = id; setUrl(id, lang); },

@@ -112,3 +112,27 @@ a { color: inherit; text-underline-offset: 0.18em; }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
 }
+
+/* ---- boundary definition ---- */
+.boundary { margin-bottom: 1.5rem; padding: 1rem 1.1rem; background: var(--panel); border-left: 6px solid var(--unit-color, var(--ink)); }
+.boundary:empty { display: none; }
+.boundary-facts { display: grid; gap: 0.7rem; margin: 0; }
+.boundary-facts dt { color: var(--ink-soft); font-size: 0.88rem; }
+.boundary-facts dd { margin: 0; max-width: 72ch; }
+
+/* ---- compare ---- */
+.compare { margin-top: 3.5rem; }
+.cmp-fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem 1.5rem; max-width: 720px; margin-bottom: 1.25rem; }
+.cmp-field { display: grid; gap: 0.25rem; font-size: 0.9rem; color: var(--ink-soft); }
+.cmp-field select { font: inherit; color: var(--ink); background: var(--panel); border: 2px solid var(--ink); padding: 0.4rem 0.5rem; }
+.cmp-result { display: grid; gap: 0.6rem; max-width: 900px; }
+.cmp-row { display: grid; grid-template-columns: minmax(110px, 190px) 1fr minmax(90px, auto); align-items: center; gap: 0.75rem; }
+.cmp-name { font-weight: 600; }
+.cmp-track { height: 28px; background: var(--panel); border: 1px solid var(--rule); }
+.cmp-fill { height: 100%; border-right: 2px solid rgba(0, 0, 0, 0.4); }
+.cmp-value { font-variant-numeric: tabular-nums; color: var(--ink-soft); text-align: right; }
+.cmp-sentence { margin: 0.4rem 0 0; font: 600 1.15rem/1.4 var(--serif); }
+@media (max-width: 760px) {
+  .cmp-row { grid-template-columns: 1fr auto; }
+  .cmp-track { grid-column: 1 / -1; grid-row: 2; }
+}

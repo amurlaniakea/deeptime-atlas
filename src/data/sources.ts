@@ -18,6 +18,13 @@ export const SOURCES: Source[] = [
     doi: '10.18814/epiiugs/2025/025001',
     accessed: '2026-11-21',
   },
+  {
+    id: 'ics-gssp-table',
+    citation:
+      'International Commission on Stratigraphy (IUGS). GSSP Table - All Periods (Global Boundary Stratotype Section and Point). Boundary definitions only; its older numerical ages are not used.',
+    url: 'https://iugs.org/_files/ugd/f1fc07_6898febeaeb645828337e8b3c44c03f0.pdf',
+    accessed: '2026-11-22',
+  },
 ];
 
 export const SOURCES_BY_ID: ReadonlyMap<string, Source> = new Map(SOURCES.map((s) => [s.id, s]));
