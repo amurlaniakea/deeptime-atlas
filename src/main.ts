@@ -4,6 +4,9 @@ import './style.css';
 import { RAW_UNITS } from './data/units';
 import { DICTS, LANGS, LANG_NAMES, detectLang, type Dict, type Lang } from './i18n';
 import { ROOT_ID, buildTree } from './lib/timescale';
+import cenogrid from './data/cenogrid.json';
+import type { CenogridFile } from './data/types';
+import { mountClimate } from './ui/climate';
 import { mountCompare } from './ui/compare';
 import { mountExplorer } from './ui/explorer';
 
@@ -86,6 +89,11 @@ function render(): void {
   const compareHost = h('div', 'compare-box');
   compareSection.append(compareHost);
 
+  const climateSection = h('section', 'climate');
+  climateSection.append(h('h2', 'section-title', dict['climate.title']), h('p', 'hint', dict['climate.hint']));
+  const climateHost = h('div', 'climate-box');
+  climateSection.append(climateHost);
+
   const parts = h('section', 'parts');
   parts.append(
     h('h2', 'section-title', dict['parts.title']),
@@ -97,7 +105,7 @@ function render(): void {
     part(dict, 'holocene', dict['status.planned'].replace('{v}', 'v0.5'), '#F2B84B'),
   );
   parts.append(grid);
-  main.append(explorerSection, compareSection, parts);
+  main.append(explorerSection, compareSection, climateSection, parts);
 
   const footer = h('footer', 'site-footer');
   const links = h('p');
@@ -109,6 +117,7 @@ function render(): void {
   app.replaceChildren(skip, header, main, footer);
 
   mountCompare(compareHost, tree, lang, dict, ['cenozoic', 'mesozoic']);
+  mountClimate(climateHost, tree, lang, dict, cenogrid as unknown as CenogridFile);
   mountExplorer(explorerHost, {
     tree, lang, dict, initialId: currentId,
     onChange: (id) => { currentId = id; setUrl(id, lang); },

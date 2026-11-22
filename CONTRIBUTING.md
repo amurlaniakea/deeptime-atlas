@@ -16,6 +16,15 @@ Please open an issue before large changes. See `docs/DATA_POLICY.md`.
 
 ## Development
 
+The Cenozoic climate series is generated from the public PANGAEA file and is not committed as raw data:
+
+```bash
+mkdir -p data-raw && curl -L -o data-raw/cenogrid_S34.tab "https://doi.pangaea.de/10.1594/PANGAEA.917717?format=textfile"
+npm run build:data
+```
+
+The file `src/data/cenogrid.json` records the SHA-256 of the input. A test fails if the series has not been generated.
+
 ```bash
 npm ci
 npm run dev        # local server

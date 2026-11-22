@@ -1,6 +1,6 @@
 {
   "name": "deeptime-atlas",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Interactive, sourced atlas of cosmic and Earth history (es/en/fr).",
   "private": true,
   "type": "module",
@@ -15,7 +15,8 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "build": "tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:data": "node scripts/build-cenogrid.mjs"
   },
   "devDependencies": {
     "typescript": "^7.0.2",

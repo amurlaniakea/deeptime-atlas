@@ -74,3 +74,35 @@ export interface TimeEvent {
   summary: Names;
   sources: string[];
 }
+
+/** A climate state of the Cenozoic as classified by Westerhold et al. (2020) with recurrence analysis. */
+export interface ClimateState {
+  id: 'hothouse' | 'warmhouse' | 'coolhouse' | 'icehouse';
+  /** Several phases may share one state (the Warmhouse has two). The id of the phase is `phaseId`. */
+  phaseId: string;
+  startMa: number;
+  endMa: number;
+  color: string;
+  names: Names;
+  summary: Names;
+  sources: string[];
+}
+
+/** A labelled transition marked on the climate curve. */
+export interface ClimateMark {
+  id: string;
+  ageMa: number;
+  approx?: boolean;
+  names: Names;
+  summary: Names;
+  sources: string[];
+}
+
+export interface CenogridFile {
+  source: { citation: string; doi: string; seriesDoi: string; paperDoi: string; license: string; changes: string };
+  input: { file: string; sha256: string; bytes: number; dataRows: number } | null;
+  generated: string | null;
+  columns: ['ageMa', 'd18oSmooth20kyr', 'd18oTrend1Myr'];
+  unit: string;
+  rows: Array<[number, number, number]>;
+}

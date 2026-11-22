@@ -126,6 +126,29 @@ export const SOURCES: Source[] = [
     doi: '10.1073/pnas.2007869117',
     accessed: '2026-11-22',
   },
+  {
+    id: 'westerhold2020',
+    citation:
+      'Westerhold, T. et al. (2020). An astronomically dated record of Earth\'s climate and its predictability over the last 66 million years. Science 369(6509): 1383-1387.',
+    url: 'https://doi.org/10.1126/science.aba6853',
+    doi: '10.1126/science.aba6853',
+    accessed: '2026-11-22',
+  },
+  {
+    id: 'westerhold2020-manuscript',
+    citation:
+      'Westerhold, T. et al. (2020). Submitted manuscript and supplementary materials of the Science paper above (UCL Discovery copy). Climate-state boundaries and statements were read from this version.',
+    url: 'https://discovery.ucl.ac.uk/id/eprint/10110319/1/aba6853_CombinedPDF_v2.pdf',
+    accessed: '2026-11-22',
+  },
+  {
+    id: 'cenogrid-s34',
+    citation:
+      'Westerhold, T. (2020). S34. Binned and LOESS smoothed Cenozoic deep-sea benthic foraminifer stable carbon and oxygen isotope reference splice. PANGAEA. In: CENOGRID dataset series, doi:10.1594/PANGAEA.917503. CC BY 4.0.',
+    url: 'https://doi.org/10.1594/PANGAEA.917717',
+    doi: '10.1594/PANGAEA.917717',
+    accessed: '2026-11-22',
+  },
 ];
 
 export const SOURCES_BY_ID: ReadonlyMap<string, Source> = new Map(SOURCES.map((s) => [s.id, s]));

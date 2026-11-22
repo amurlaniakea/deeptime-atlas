@@ -164,3 +164,37 @@ a { color: inherit; text-underline-offset: 0.18em; }
 .stratum.is-tight .stratum-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: inherit; }
 .ev-cold { width: 12px; margin-left: -6px; background: #8e6bbf; border: 1px solid #16202a; }
 .ev-sample.ev-cold { width: 9px; height: 16px; margin: 0; }
+
+/* ---- climate chart ---- */
+:root { --curve-long: #0b3d6b; --curve-short: #5d6b77; --mark: #16202a; --mark-text: #ffffff; }
+@media (prefers-color-scheme: dark) { :root { --curve-long: #9cc9ff; --curve-short: #94a3af; --mark: #e8ece6; --mark-text: #10171e; } }
+.climate { margin-top: 3.5rem; }
+.climate-chart { width: 100%; max-width: 1000px; }
+.climate-svg { display: block; width: 100%; height: auto; touch-action: pan-y; }
+.cl-grid { stroke: var(--rule); stroke-width: 1; }
+.cl-axis { stroke: var(--ink-soft); stroke-width: 1; }
+.cl-tick, .cl-label, .cl-band-label, .cl-epoch { font: 12px var(--sans); fill: var(--ink-soft); }
+.cl-label { fill: var(--ink); }
+.cl-band-label { fill: var(--ink); font-weight: 600; }
+.cl-epoch { font-size: 11px; }
+.cl-short { stroke: var(--curve-short); stroke-width: 1; opacity: 0.8; }
+.cl-long { stroke: var(--curve-long); stroke-width: 2.6; stroke-linejoin: round; }
+.cl-mark-line { stroke: var(--mark); stroke-width: 1; stroke-dasharray: 3 3; opacity: 0.7; }
+.cl-mark-dot { fill: var(--mark); }
+.cl-mark-num { font: 700 11px var(--sans); fill: var(--mark-text); }
+.cl-guide { stroke: var(--ink); stroke-width: 1; }
+.cl-dot-short { fill: var(--curve-short); stroke: var(--ground); stroke-width: 1; }
+.cl-dot-long { fill: var(--curve-long); stroke: var(--ground); stroke-width: 1.5; }
+.climate-keys { display: flex; flex-wrap: wrap; gap: 0.3rem 1.2rem; margin: 0.5rem 0 0; font-size: 0.85rem; color: var(--ink-soft); }
+.cl-key-short, .cl-key-long { display: inline-block; width: 22px; height: 0; border-top: 1px solid var(--curve-short); }
+.cl-key-long { border-top: 3px solid var(--curve-long); }
+.climate-readout { min-height: 1.6em; margin: 0.4rem 0; font-variant-numeric: tabular-nums; font-weight: 600; }
+.climate-credit { margin: 0.8rem 0 0; font-size: 0.85rem; color: var(--ink-soft); }
+.climate-nodata { padding: 1rem; background: var(--panel); border-left: 6px solid #c4281c; max-width: 70ch; }
+.climate-list { list-style: none; margin: 0 0 1.2rem; padding: 0; display: grid; gap: 0.7rem; max-width: 80ch; }
+.climate-list li { display: grid; grid-template-columns: 14px 1fr; gap: 0.7rem; }
+.climate-list p { margin: 0.15rem 0 0; }
+.climate-marks { counter-reset: mark; }
+.climate-marks li { grid-template-columns: 1fr; }
+.climate-marks li > div::before { counter-increment: mark; content: counter(mark); display: inline-flex; align-items: center; justify-content: center; width: 1.45rem; height: 1.45rem; margin-right: 0.5rem; border-radius: 50%; background: var(--mark); color: var(--mark-text); font: 700 0.78rem var(--sans); }
+.climate-axis-note { margin: 0.4rem 0 0; font-size: 0.85rem; color: var(--ink-soft); }

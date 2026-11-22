@@ -69,6 +69,60 @@ export const EVENTS: TimeEvent[] = [
     },
     sources: ['rosa-isbell2020', 'montanez2013'],
   },
+  {
+    id: 'antarctic-glaciation',
+    kind: 'glaciation',
+    startMa: 34.025,
+    certainty: 'consensus',
+    names: {
+      es: 'Glaciación de la Antártida (transición Eoceno-Oligoceno)',
+      en: 'Antarctic glaciation (Eocene–Oligocene Transition)',
+      fr: 'Glaciation de l’Antarctique (transition Éocène-Oligocène)',
+    },
+    summary: {
+      es: 'Aparición de grandes casquetes en la Antártida, con un descenso escalonado de la temperatura y un fuerte aumento del hielo continental. Establece un estado glacial unipolar y es la transición más destacada de todo el Cenozoico en el análisis de recurrencia. Edad: la del modelo de edades de la serie CENOGRID.',
+      en: 'Onset of large ice sheets on Antarctica, with a stepwise drop in temperature and a major increase in continental ice volume. It establishes a unipolar glacial state and is the most prominent transition of the whole Cenozoic in the recurrence analysis. Age: that of the CENOGRID record’s age model.',
+      fr: 'Apparition de grandes calottes sur l’Antarctique, avec une baisse de température par paliers et une forte augmentation du volume de glace continentale. Elle établit un état glaciaire unipolaire et constitue la transition la plus marquante de tout le Cénozoïque dans l’analyse de récurrence. Âge : celui du modèle d’âge de la série CENOGRID.',
+    },
+    sources: ['westerhold2020', 'westerhold2020-manuscript'],
+  },
+  {
+    id: 'cenozoic-icehouse',
+    kind: 'glaciation',
+    startMa: 3.3,
+    endMa: 0,
+    approx: true,
+    certainty: 'debated',
+    names: {
+      es: 'Glaciaciones del Cenozoico tardío (Icehouse)',
+      en: 'Late Cenozoic ice ages (Icehouse)',
+      fr: 'Glaciations du Cénozoïque supérieur (Icehouse)',
+    },
+    summary: {
+      es: 'El estado Icehouse, impulsado por casquetes que crecen y menguan en el hemisferio norte, quedó plenamente establecido hacia la transición Plioceno-Pleistoceno; la glaciación M2 (3,3 Ma) pudo ser un precursor. Hace unos 800 000 años las oscilaciones del δ¹⁸O se amplificaron por el crecimiento y retroceso de enormes casquetes; por qué las edades de hielo siguen un ritmo de unos 100 000 años es aún un problema sin resolver. La fecha exacta de inicio sigue en discusión.',
+      en: 'The Icehouse state, driven by waxing and waning ice sheets in the Northern Hemisphere, was fully established by the Pliocene–Pleistocene transition; the M2 glacial (3.3 Ma) may have been a harbinger. About 800,000 years ago the swings in δ¹⁸O grew larger as massive ice sheets waxed and waned; why the ice ages follow a roughly 100,000-year rhythm is still an unsolved problem. The exact start date is still discussed.',
+      fr: 'L’état Icehouse, animé par des calottes qui croissent et décroissent dans l’hémisphère nord, était pleinement établi à la transition Pliocène-Pléistocène ; la glaciation M2 (3,3 Ma) pourrait en être un signe avant-coureur. Il y a environ 800 000 ans, les oscillations du δ¹⁸O se sont amplifiées avec la croissance et le recul d’immenses calottes ; pourquoi les âges glaciaires suivent un rythme d’environ 100 000 ans reste un problème non résolu. La date exacte de début est encore discutée.',
+    },
+    sources: ['westerhold2020', 'westerhold2020-manuscript'],
+  },
+  {
+    id: 'northern-hemisphere-glaciation',
+    kind: 'glaciation',
+    startMa: 2.7,
+    approx: true,
+    certainty: 'consensus',
+    names: {
+      es: 'Intensificación de la glaciación del hemisferio norte',
+      en: 'Intensification of Northern Hemisphere glaciation',
+      fr: 'Intensification de la glaciation de l’hémisphère nord',
+    },
+    summary: {
+      es: 'Hace unos 2,7 Ma se intensifica el crecimiento de los casquetes del hemisferio norte: la contribución del volumen de hielo al δ¹⁸O oceánico profundo aumenta, y por eso la serie del Cenozoico tardío mide a la vez temperatura y hielo.',
+      en: 'About 2.7 Ma the growth of Northern Hemisphere ice sheets intensifies: the contribution of ice volume to deep-sea δ¹⁸O increases, which is why the late Cenozoic record tracks temperature and ice together.',
+      fr: 'Vers 2,7 Ma, la croissance des calottes de l’hémisphère nord s’intensifie : la contribution du volume de glace au δ¹⁸O des océans profonds augmente, ce qui explique que la série du Cénozoïque supérieur suive à la fois température et glace.',
+    },
+    sources: ['westerhold2020', 'westerhold2020-manuscript'],
+  },
   // ---------------- Abrupt cold events ----------------
   {
     id: 'younger-dryas',
