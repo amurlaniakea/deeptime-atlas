@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 // Copyright (C) 2026 Pedro Sordo Martínez <amurlaniakea@gmail.com>
-import type { Names, RawUnit, Rank } from '../data/types';
+import type { Names, RawUnit, Rank, TimeEvent } from '../data/types';
 import { EARTH_AGE_MA } from '../data/units';
 
 export const ROOT_ID = 'earth';
@@ -165,7 +165,14 @@ export function formatAgeErr(ma: number, errMa: number | undefined, lang: string
   if (ma === 0) return presentLabel;
   if (errMa === undefined) return formatSpan(ma, lang);
   const f = (v: number, d: number) => new Intl.NumberFormat(lang, { maximumFractionDigits: d }).format(v);
-  return ma < 1 ? `${f(ma * 1000, 1)} ± ${f(errMa * 1000, 1)} ka` : `${f(ma, 3)} ± ${f(errMa, 3)} Ma`;
+  // Show enough decimals for the uncertainty to keep at least one significant digit.
+  const digits = (err: number, base: number) => Math.min(6, Math.max(base, Math.ceil(-Math.log10(err))));
+  if (ma < 1) {
+    const d = digits(errMa * 1000, 1);
+    return `${f(ma * 1000, d)} ± ${f(errMa * 1000, d)} ka`;
+  }
+  const d = digits(errMa, 3);
+  return `${f(ma, d)} ± ${f(errMa, d)} Ma`;
 }
 export function formatShare(fraction: number, lang: string): string {
   return new Intl.NumberFormat(lang, { style: 'percent', maximumSignificantDigits: 2 }).format(fraction);
@@ -197,4 +204,22 @@ export function flatOrder(tree: Tree): Array<{ unit: Unit; depth: number }> {
   };
   walk(ROOT_ID, 0);
   return out;
+}
+
+// ---------- events ----------
+/** Events whose age (or age range) overlaps the unit. */
+export function eventsIn(events: readonly TimeEvent[], u: Unit): TimeEvent[] {
+  return events
+    .filter((e) =>
+      e.endMa === undefined
+        ? e.startMa >= u.endMa && e.startMa <= u.startMa
+        : e.startMa > u.endMa && e.endMa < u.startMa,
+    )
+    .sort((a, b) => b.startMa - a.startMa);
+}
+export function formatEventAge(e: TimeEvent, lang: string, presentLabel: string): string {
+  const start = formatAgeErr(e.startMa, e.startErr, lang, presentLabel);
+  const prefix = e.approx ? '~ ' : '';
+  if (e.endMa === undefined) return prefix + start;
+  return `${prefix}${start} – ${formatAgeErr(e.endMa, e.endErr, lang, presentLabel)}`;
 }

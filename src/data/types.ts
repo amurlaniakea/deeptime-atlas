@@ -48,3 +48,29 @@ export interface BoundaryDef {
   reference?: string;
   sources: string[];
 }
+
+export type EventKind = 'extinction' | 'glaciation' | 'cold-event';
+/** 'consensus' = broadly accepted; 'debated' = a key point (cause, timing or extent) is still debated. */
+export type Certainty = 'consensus' | 'debated';
+
+/** A dated event or interval (mass extinction, glaciation). Ages in Ma, as printed by the source. */
+export interface TimeEvent {
+  id: string;
+  kind: EventKind;
+  /** Older bound, or the single age of a point event. */
+  startMa: number;
+  startErr?: number;
+  /** Younger bound. Omit for a point event. */
+  endMa?: number;
+  endErr?: number;
+  /** The age is rounded or approximate in the source. */
+  approx?: boolean;
+  certainty: Certainty;
+  /** One of the Big Five mass extinctions. */
+  bigFive?: boolean;
+  /** The event coincides with the base of this unit (cross-checked against the chart by a test). */
+  boundaryUnit?: string;
+  names: Names;
+  summary: Names;
+  sources: string[];
+}

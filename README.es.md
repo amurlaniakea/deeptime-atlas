@@ -16,16 +16,19 @@ Disponible en **español, inglés y francés**.
 | Parte | Contenido | Estado |
 |---|---|---|
 | Historia cósmica | Del Big Bang al Sistema Solar y la Tierra | prevista en la v0.4 |
-| Tiempo geológico | Eones, eras, periodos y épocas; extinciones masivas; glaciaciones | **disponible (v0.2)**: columna hasta el nivel de piso en el Cenozoico; curvas y eventos en la v0.3 |
+| Tiempo geológico | Eones, eras, periodos y épocas; extinciones masivas; glaciaciones | **disponible (v0.3)**: columna, cinco grandes extinciones y glaciaciones; curvas climáticas en la v0.3.1 |
 | Holoceno y humanidad | Zoom a la época actual, el registro de homínidos del Pleistoceno y las eras de la civilización | prevista en la v0.5 |
 
-## Qué hace (v0.2)
+## Qué hace (v0.3)
 
 - Una columna estratigráfica **a escala**: pulsa una capa para pasar de eón a era, periodo, época y edad.
 - Para cada unidad: edades de inicio y fin con la incertidumbre publicada, duración, parte de la historia
   de la Tierra y un «reloj de 24 horas» (si la historia de la Tierra fuera un día, ¿a qué hora empieza la unidad?).
 - Todo el Cenozoico hasta el nivel de piso, con la **definición de la base** (marcador GSSP, sección de referencia,
   ratificación) de nueve límites clave, incluido el límite Cretácico-Paleógeno y el inicio del Holoceno.
+- **Extinciones masivas y glaciaciones** dibujadas sobre la columna (rombos y barras) y listadas con su edad, incertidumbre,
+  estado científico (ampliamente aceptado o en parte debatido) y los artículos de los que proceden: las cinco grandes
+  extinciones, el Dryas Reciente, las glaciaciones huroniana, Sturtiense y Marinoense y la glaciación del Paleozoico tardío.
 - Una herramienta para **comparar** dos unidades a la misma escala, con la proporción entre sus duraciones.
 - Enlaces compartibles a cualquier unidad (`#phanerozoic`) y a un idioma (`?lang=es`).
 - Lista de capas accesible con teclado, contraste de texto adecuado, modo oscuro y respeto a «reducir movimiento».
@@ -57,7 +60,8 @@ Pila: Vite, TypeScript (estricto), Vitest. Sin dependencias en tiempo de ejecuci
 |---|---|
 | v0.1 | Esqueleto, i18n, esquema de datos con fuentes, CI, Live Demo, columna geológica |
 | v0.2 | Cenozoico hasta piso, definiciones GSSP de límites, herramienta de comparación |
-| v0.3 | Curvas climáticas, extinciones masivas, glaciaciones, hitos |
+| v0.3 | Extinciones masivas y glaciaciones con fuentes |
+| v0.3.1 | Curva climática del Cenozoico y la «casa de hielo» cenozoica (de una reconstrucción publicada) |
 | v0.4 | Historia cósmica (escala logarítmica y calendario cósmico) |
 | v0.5 | Holoceno y humanidad (yacimientos del Pleistoceno, Atapuerca, Göbekli Tepe, civilizaciones) |
 | v0.6 | Modo aula: guía docente y cuestionarios |

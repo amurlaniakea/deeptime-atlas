@@ -1,11 +1,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 // Copyright (C) 2026 Pedro Sordo Martínez <amurlaniakea@gmail.com>
 import { BOUNDARIES } from '../data/boundaries';
+import { EVENTS } from '../data/events';
 import { SOURCES_BY_ID } from '../data/sources';
 import { EARTH_AGE_MA } from '../data/units';
 import type { Dict, Lang } from '../i18n';
 import {
-  ROOT_ID, clockLabel, coreParentId, formatAge, formatAgeErr, formatShare, formatSpan,
+  ROOT_ID, clockLabel, coreParentId, eventsIn, formatAge, formatEventAge, formatAgeErr, formatShare, formatSpan,
   isAncestor, lerpWindow, pathTo, textColorFor, type Tree, type Unit, type Win,
 } from '../lib/timescale';
 
@@ -18,6 +19,7 @@ export interface ExplorerOptions {
 }
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
+const EVENT_CLASS = { extinction: 'ev-extinction', glaciation: 'ev-glaciation', 'cold-event': 'ev-cold' } as const;
 const reduced = (): boolean => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const winOf = (u: Unit): Win => ({ a: u.endMa, b: u.startMa });
 const ease = (t: number): number => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
@@ -46,7 +48,15 @@ export function mountExplorer(host: HTMLElement, opts: ExplorerOptions): { setCu
   core.setAttribute('aria-label', dict['explorer.coreLabel']);
   const layersTitle = el('h3', 'layers-title', dict['explorer.layers']);
   const layers = el('ul', 'layers');
-  coreCol.append(zoomOut, core, layersTitle, layers);
+  const legend = el('p', 'ev-legend');
+  const lx = el('span', 'ev-key');
+  lx.append(el('span', 'ev-sample ev-extinction'), dict['events.legend.extinction']);
+  const lg = el('span', 'ev-key');
+  lg.append(el('span', 'ev-sample ev-glaciation'), dict['events.legend.glaciation']);
+  const lc = el('span', 'ev-key');
+  lc.append(el('span', 'ev-sample ev-cold'), dict['events.legend.cold']);
+  legend.append(lx, lg, lc);
+  coreCol.append(zoomOut, core, legend, layersTitle, layers);
   const detail = el('div', 'detail');
   host.replaceChildren(coreCol, detail);
 
@@ -74,12 +84,33 @@ export function mountExplorer(host: HTMLElement, opts: ExplorerOptions): { setCu
       s.style.color = textColorFor(u.color);
       s.title = `${name(u)} (${range(u)})`;
       const px = h * height;
-      if (px >= 17) s.append(el('span', 'stratum-name', name(u)));
+      const tight = px < 34;
+      if (tight) {
+        s.classList.add('is-tight');
+        s.style.fontSize = `${Math.max(10, Math.min(15, px * 0.62))}px`;
+      }
+      if (px >= 14) s.append(el('span', 'stratum-name', name(u)));
       if (px >= 44) s.append(el('span', 'stratum-range', range(u)));
       s.addEventListener('click', () => setCurrent(cid, true));
       nodes.push(s);
     }
-    core.replaceChildren(...nodes);
+    const gutter = el('div', 'core-gutter');
+    for (const ev of EVENTS) {
+      const end = ev.endMa ?? ev.startMa;
+      if (ev.startMa < win.a || end > win.b) continue;
+      const m = el('div', `ev ${EVENT_CLASS[ev.kind]}`);
+      const topFrac = (end - win.a) / span;
+      const hFrac = (ev.startMa - end) / span;
+      if (ev.kind === 'extinction') {
+        m.style.top = `${((ev.startMa - win.a) / span) * 100}%`;
+      } else {
+        m.style.top = `${topFrac * 100}%`;
+        m.style.height = `max(4px, ${hFrac * 100}%)`;
+      }
+      m.title = `${ev.names[lang]} (${formatEventAge(ev, lang, dict['present'])})`;
+      gutter.append(m);
+    }
+    core.replaceChildren(...nodes, gutter);
   }
 
   function animate(from: Win, to: Win, parentId: string, done: () => void): void {
@@ -220,6 +251,38 @@ export function mountExplorer(host: HTMLElement, opts: ExplorerOptions): { setCu
       boundaryBlock.append(bl);
     }
 
+    const evs = eventsIn(EVENTS, u);
+    const eventsBlock = el('section', 'events');
+    if (evs.length > 0) {
+      eventsBlock.append(el('h3', 'sources-title', dict['events.title']));
+      for (const ev of evs) {
+        const d = el('details', 'event');
+        const sum = el('summary');
+        sum.append(
+          el('span', `ev-sample ${EVENT_CLASS[ev.kind]}`),
+          el('span', 'event-name', ev.names[lang]),
+          el('span', 'event-age', formatEventAge(ev, lang, dict['present'])),
+        );
+        d.append(sum);
+        const badges2 = el('p', 'badges');
+        if (ev.bigFive) badges2.append(el('span', 'badge', dict['events.bigFive']));
+        badges2.append(el('span', `badge badge-${ev.certainty}`, `${dict['events.status.label']}: ${dict[`events.status.${ev.certainty}` as keyof Dict]}`));
+        d.append(badges2, el('p', 'event-summary', ev.summary[lang]));
+        const evSrc = el('ul', 'sources');
+        for (const sid of ev.sources) {
+          const so = SOURCES_BY_ID.get(sid);
+          if (!so) continue;
+          const li = el('li');
+          const a = el('a', undefined, so.citation);
+          a.href = so.url; a.rel = 'noopener noreferrer'; a.target = '_blank';
+          li.append(a);
+          evSrc.append(li);
+        }
+        d.append(evSrc);
+        eventsBlock.append(d);
+      }
+    }
+
     const srcTitle = el('h3', 'sources-title', dict['detail.sources']);
     const srcList = el('ul', 'sources');
     for (const sid of [...u.sources, ...(boundary ? boundary.sources : [])]) {
@@ -233,7 +296,7 @@ export function mountExplorer(host: HTMLElement, opts: ExplorerOptions): { setCu
     }
     const note = el('p', 'age-note', dict['explorer.ageNote']);
 
-    detail.replaceChildren(nav, rank, title, badges, dl, clock, boundaryBlock, srcTitle, srcList, note);
+    detail.replaceChildren(nav, rank, title, badges, dl, clock, boundaryBlock, eventsBlock, srcTitle, srcList, note);
   }
 
   // ----- transitions -----

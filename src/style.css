@@ -56,7 +56,7 @@ a { color: inherit; text-underline-offset: 0.18em; }
 .btn-zoom-out { align-self: flex-start; background: var(--panel); border: 2px solid var(--ink); padding: 0.3rem 0.8rem; }
 .btn-zoom-out:disabled { opacity: 0.4; cursor: default; }
 .core { position: relative; height: clamp(420px, 68vh, 680px); border: 2px solid var(--ink); background: var(--panel); overflow: hidden; }
-.stratum { position: absolute; left: 0; right: 0; display: flex; flex-direction: column; padding: 3px 10px; overflow: hidden; cursor: pointer; box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.3); line-height: 1.15; }
+.stratum { position: absolute; left: 0; right: 26px; display: flex; flex-direction: column; padding: 3px 10px; overflow: hidden; cursor: pointer; box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.3); line-height: 1.15; }
 .stratum:hover { filter: brightness(1.07); }
 .stratum.is-current { box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.95), inset 0 0 0 5px rgba(0, 0, 0, 0.85); }
 .stratum-name { font-weight: 600; font-size: 0.95rem; }
@@ -136,3 +136,31 @@ a { color: inherit; text-underline-offset: 0.18em; }
   .cmp-row { grid-template-columns: 1fr auto; }
   .cmp-track { grid-column: 1 / -1; grid-row: 2; }
 }
+
+/* ---- events on the core ---- */
+.core-gutter { position: absolute; top: 0; right: 0; bottom: 0; width: 26px; background: var(--panel); border-left: 2px solid var(--ink); }
+.ev { position: absolute; left: 50%; }
+.ev-extinction { width: 14px; height: 14px; margin: -7px 0 0 -7px; background: #c4281c; border: 2px solid #fff; outline: 1px solid #16202a; transform: rotate(45deg); }
+.ev-glaciation { width: 12px; margin-left: -6px; background: #5aa9d6; border: 1px solid #16202a; }
+.ev-legend { display: flex; flex-wrap: wrap; gap: 0.3rem 1rem; margin: 0; font-size: 0.82rem; color: var(--ink-soft); }
+.ev-key { display: inline-flex; align-items: center; gap: 0.4rem; }
+.ev-sample { position: static; display: inline-block; flex: none; }
+.ev-sample.ev-extinction { width: 11px; height: 11px; margin: 0 2px; }
+.ev-sample.ev-glaciation { width: 9px; height: 16px; margin: 0; }
+
+/* ---- event list ---- */
+.events { margin-bottom: 1.5rem; }
+.event { border: 1px solid var(--rule); background: var(--panel); margin-bottom: 0.4rem; }
+.event summary { display: grid; grid-template-columns: 18px 1fr auto; align-items: center; gap: 0.6rem; padding: 0.5rem 0.7rem; cursor: pointer; }
+.event-name { font-weight: 600; }
+.event-age { color: var(--ink-soft); font-size: 0.85rem; font-variant-numeric: tabular-nums; text-align: right; }
+.event > :not(summary) { margin-inline: 0.9rem; }
+.event-summary { max-width: 72ch; }
+.badge-debated { border-style: dashed; }
+@media (max-width: 760px) { .event summary { grid-template-columns: 18px 1fr; } .event-age { grid-column: 2; text-align: left; } }
+
+/* ---- thin layers: keep the label fully visible ---- */
+.stratum.is-tight { padding: 0 10px; justify-content: center; line-height: 1; }
+.stratum.is-tight .stratum-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: inherit; }
+.ev-cold { width: 12px; margin-left: -6px; background: #8e6bbf; border: 1px solid #16202a; }
+.ev-sample.ev-cold { width: 9px; height: 16px; margin: 0; }
