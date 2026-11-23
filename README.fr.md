@@ -15,11 +15,11 @@ Disponible en **espagnol, anglais et français**.
 
 | Partie | Contenu | État |
 |---|---|---|
-| Histoire cosmique | Du Big Bang au Système solaire et à la Terre | prévue en v0.4 |
-| Temps géologique | Éons, ères, périodes et époques ; extinctions de masse ; glaciations | **disponible (v0.3.1)** : colonne, cinq grandes extinctions, glaciations et courbe climatique du Cénozoïque |
+| Histoire cosmique | Du Big Bang au Système solaire et à la Terre | **disponible (v0.4)** |
+| Temps géologique | Éons, ères, périodes et époques ; extinctions de masse ; glaciations | **disponible** : colonne, cinq grandes extinctions, glaciations et courbe climatique du Cénozoïque |
 | Holocène et humanité | Zoom sur l'époque actuelle, les homininés du Pléistocène et les ères de la civilisation | prévue en v0.5 |
 
-## Ce que fait l'atlas (v0.3.1)
+## Ce que fait l'atlas (v0.4)
 
 - Une colonne stratigraphique **à l'échelle** : cliquez sur une couche pour passer de l'éon à l'ère, la période, l'époque et l'âge.
 - Pour chaque unité : âges de début et de fin avec l'incertitude publiée, durée, part de l'histoire de la Terre
@@ -29,6 +29,9 @@ Disponible en **espagnol, anglais et français**.
 - **Extinctions de masse et glaciations** dessinées sur la colonne (losanges et barres) et listées avec leur âge, leur incertitude,
   leur statut scientifique (largement admis ou en partie débattu) et les articles dont elles proviennent : les cinq grandes
   extinctions, le Dryas récent, les glaciations huronienne, sturtienne et marinoenne et la glaciation du Paléozoïque supérieur.
+- **Histoire cosmique** du Big Bang à la Terre, sur une échelle de temps logarithmique et sur le **calendrier cosmique** (l'âge de
+  l'Univers en une année) : temps de Planck, nucléosynthèse, égalité matière-rayonnement, fond diffus cosmologique, la galaxie
+  confirmée la plus lointaine, réionisation, la Voie lactée, le Système solaire et la Lune, avec des liens vers la section géologique.
 - Une **courbe climatique du Cénozoïque** : l'enregistrement du δ¹⁸O benthique des 66 derniers millions d'années (CENOGRID, Westerhold et al. 2020),
   avec les quatre états climatiques (Hothouse, Warmhouse, Coolhouse, Icehouse), les transitions clés et une lecture au survol.
 - Un outil de **comparaison** : deux unités à la même échelle, avec le rapport de leurs durées.
@@ -71,7 +74,7 @@ Pile : Vite, TypeScript (strict), Vitest. Aucune dépendance à l'exécution.
 | v0.2 | Cénozoïque jusqu'à l'étage, définitions GSSP des limites, outil de comparaison |
 | v0.3 | Extinctions de masse et glaciations avec sources |
 | v0.3.1 | Courbe climatique du Cénozoïque (CENOGRID) et glaciations du Cénozoïque |
-| v0.4 | Histoire cosmique (échelle logarithmique et calendrier cosmique) |
+| v0.4 | Histoire cosmique (échelle logarithmique et calendrier cosmique) avec événements sourcés |
 | v0.5 | Holocène et humanité (sites du Pléistocène, Atapuerca, Göbekli Tepe, civilisations) |
 | v0.6 | Mode classe : guide pédagogique et quiz |
 | v1.0 | Audit complet des sources et DOI Zenodo |

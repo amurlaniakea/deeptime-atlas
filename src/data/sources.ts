@@ -149,6 +149,68 @@ export const SOURCES: Source[] = [
     doi: '10.1594/PANGAEA.917717',
     accessed: '2026-11-22',
   },
+  {
+    id: 'planck2018-vi',
+    citation:
+      'Planck Collaboration (2020). Planck 2018 results. VI. Cosmological parameters. Astronomy & Astrophysics 641: A6. Table 2 (TT,TE,EE+lowE+lensing+BAO).',
+    url: 'https://doi.org/10.1051/0004-6361/201833910',
+    doi: '10.1051/0004-6361/201833910',
+    accessed: '2026-11-23',
+  },
+  {
+    id: 'codata2022',
+    citation:
+      'Mohr, P.J., Newell, D.B., Taylor, B.N. & Tiesinga, E. (2025). CODATA recommended values of the fundamental physical constants: 2022. Reviews of Modern Physics 97: 025002.',
+    url: 'https://doi.org/10.1103/RevModPhys.97.025002',
+    doi: '10.1103/RevModPhys.97.025002',
+    accessed: '2026-11-23',
+  },
+  {
+    id: 'pdg-bbn-2025',
+    citation:
+      'Fields, B.D., Molaro, P. & Sarkar, S. (revised August 2025). 24. Big Bang Nucleosynthesis. In: Review of Particle Physics (Particle Data Group), 2025 update.',
+    url: 'https://pdg.lbl.gov/2025/reviews/rpp2025-rev-bbang-nucleosynthesis.pdf',
+    accessed: '2026-11-23',
+  },
+  {
+    id: 'pdg-bbn-2026',
+    citation:
+      'Particle Data Group (2026). 24. Big Bang Nucleosynthesis. In: Review of Particle Physics, Int. J. Mod. Phys. A 41, 2630011.',
+    url: 'https://pdgweb.lbl.gov/2026/reviews/rpp2026-rev-bbang-nucleosynthesis.pdf',
+    accessed: '2026-11-23',
+  },
+  {
+    id: 'naidu2026',
+    citation:
+      'Naidu, R.P. et al. (2026). A Cosmic Miracle: A Remarkably Luminous Galaxy at z_spec = 14.44 Confirmed with JWST. Open Journal of Astrophysics.',
+    url: 'https://doi.org/10.33232/001c.156033',
+    doi: '10.33232/001c.156033',
+    accessed: '2026-11-23',
+  },
+  {
+    id: 'xiang2022',
+    citation:
+      'Xiang, M. & Rix, H.-W. (2022). A time-resolved picture of our Milky Way\'s early formation history. Nature 603: 599-603.',
+    url: 'https://doi.org/10.1038/s41586-022-04496-5',
+    doi: '10.1038/s41586-022-04496-5',
+    accessed: '2026-11-23',
+  },
+  {
+    id: 'connelly2012',
+    citation:
+      'Connelly, J.N. et al. (2012). The absolute chronology and thermal processing of solids in the solar protoplanetary disk. Science 338(6107): 651-655.',
+    url: 'https://doi.org/10.1126/science.1226919',
+    doi: '10.1126/science.1226919',
+    accessed: '2026-11-23',
+  },
+  {
+    id: 'barboni2017',
+    citation:
+      'Barboni, M. et al. (2017). Early formation of the Moon 4.51 billion years ago. Science Advances 3(1): e1602365.',
+    url: 'https://doi.org/10.1126/sciadv.1602365',
+    doi: '10.1126/sciadv.1602365',
+    accessed: '2026-11-23',
+  },
 ];
 
 export const SOURCES_BY_ID: ReadonlyMap<string, Source> = new Map(SOURCES.map((s) => [s.id, s]));

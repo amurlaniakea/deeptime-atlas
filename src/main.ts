@@ -7,6 +7,7 @@ import { ROOT_ID, buildTree } from './lib/timescale';
 import cenogrid from './data/cenogrid.json';
 import type { CenogridFile } from './data/types';
 import { mountClimate } from './ui/climate';
+import { mountCosmos } from './ui/cosmos';
 import { mountCompare } from './ui/compare';
 import { mountExplorer } from './ui/explorer';
 
@@ -77,7 +78,24 @@ function render(): void {
   }
   header.append(heading, langNav);
 
+  const nav = h('nav', 'sections-nav');
+  nav.setAttribute('aria-label', dict['parts.title']);
+  for (const [href, key] of [['#cosmos', 'nav.cosmos'], ['#explorer', 'nav.earth']] as const) {
+    const a = h('a', undefined, dict[key]);
+    a.href = href;
+    nav.append(a);
+  }
+  const soon = h('span', 'nav-soon', `${dict['nav.holocene']} (${dict['status.planned'].replace('{v}', 'v0.5')})`);
+  nav.append(soon);
+  header.append(nav);
+
   const main = h('main');
+  const cosmosSection = h('section', 'cosmos-section');
+  cosmosSection.id = 'cosmos';
+  cosmosSection.append(h('h2', 'section-title', dict['cosmos.title']), h('p', 'hint', dict['cosmos.hint']));
+  const cosmosHost = h('div', 'cosmos-box');
+  cosmosSection.append(cosmosHost);
+
   const explorerSection = h('section', 'explorer-section');
   explorerSection.id = 'explorer';
   explorerSection.append(h('h2', 'section-title', dict['explorer.title']), h('p', 'hint', dict['explorer.hint']));
@@ -100,12 +118,12 @@ function render(): void {
   );
   const grid = h('div', 'parts-grid');
   grid.append(
-    part(dict, 'cosmos', dict['status.planned'].replace('{v}', 'v0.4'), '#4B3A9E'),
+    part(dict, 'cosmos', dict['status.available'], '#4B3A9E'),
     part(dict, 'earth', dict['status.available'], '#34B2C9'),
     part(dict, 'holocene', dict['status.planned'].replace('{v}', 'v0.5'), '#F2B84B'),
   );
   parts.append(grid);
-  main.append(explorerSection, compareSection, climateSection, parts);
+  main.append(cosmosSection, explorerSection, compareSection, climateSection, parts);
 
   const footer = h('footer', 'site-footer');
   const links = h('p');
@@ -116,6 +134,10 @@ function render(): void {
 
   app.replaceChildren(skip, header, main, footer);
 
+  mountCosmos(cosmosHost, lang, dict, (unitId) => {
+    window.location.hash = unitId;
+    window.setTimeout(() => document.getElementById('explorer')?.scrollIntoView({ behavior: 'smooth' }), 60);
+  });
   mountCompare(compareHost, tree, lang, dict, ['cenozoic', 'mesozoic']);
   mountClimate(climateHost, tree, lang, dict, cenogrid as unknown as CenogridFile);
   mountExplorer(explorerHost, {

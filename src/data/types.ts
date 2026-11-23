@@ -51,7 +51,7 @@ export interface BoundaryDef {
 
 export type EventKind = 'extinction' | 'glaciation' | 'cold-event';
 /** 'consensus' = broadly accepted; 'debated' = a key point (cause, timing or extent) is still debated. */
-export type Certainty = 'consensus' | 'debated';
+export type Certainty = 'consensus' | 'debated' | 'hypothesis';
 
 /** A dated event or interval (mass extinction, glaciation). Ages in Ma, as printed by the source. */
 export interface TimeEvent {
@@ -105,4 +105,36 @@ export interface CenogridFile {
   columns: ['ageMa', 'd18oSmooth20kyr', 'd18oTrend1Myr'];
   unit: string;
   rows: Array<[number, number, number]>;
+}
+
+/** How the time of a cosmic event is given. Seconds are measured after the Big Bang. */
+export type CosmicTime =
+  | { kind: 'seconds'; value: number }
+  | { kind: 'redshift'; z: number; err?: number }
+  | { kind: 'afterBigBang'; years: number; err?: number }
+  | { kind: 'lookback'; years: number; err?: number }
+  | { kind: 'now' };
+
+export interface CosmicEvent {
+  id: string;
+  time: CosmicTime;
+  /** Time after the Big Bang stated by the source, in years, used only by a test to cross-check the computed value. */
+  statedYears?: number;
+  approx?: boolean;
+  certainty: Certainty;
+  names: Names;
+  summary: Names;
+  /** Unit of the geological timescale to open from this event. */
+  link?: string;
+  sources: string[];
+}
+
+/** An editorial grouping of cosmic time between two events (null = Big Bang / today). */
+export interface CosmicBand {
+  id: string;
+  from: string | null;
+  to: string | null;
+  color: string;
+  names: Names;
+  summary: Names;
 }

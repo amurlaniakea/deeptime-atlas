@@ -15,11 +15,11 @@ Disponible en **español, inglés y francés**.
 
 | Parte | Contenido | Estado |
 |---|---|---|
-| Historia cósmica | Del Big Bang al Sistema Solar y la Tierra | prevista en la v0.4 |
-| Tiempo geológico | Eones, eras, periodos y épocas; extinciones masivas; glaciaciones | **disponible (v0.3.1)**: columna, cinco grandes extinciones, glaciaciones y la curva climática del Cenozoico |
+| Historia cósmica | Del Big Bang al Sistema Solar y la Tierra | **disponible (v0.4)** |
+| Tiempo geológico | Eones, eras, periodos y épocas; extinciones masivas; glaciaciones | **disponible**: columna, cinco grandes extinciones, glaciaciones y la curva climática del Cenozoico |
 | Holoceno y humanidad | Zoom a la época actual, el registro de homínidos del Pleistoceno y las eras de la civilización | prevista en la v0.5 |
 
-## Qué hace (v0.3.1)
+## Qué hace (v0.4)
 
 - Una columna estratigráfica **a escala**: pulsa una capa para pasar de eón a era, periodo, época y edad.
 - Para cada unidad: edades de inicio y fin con la incertidumbre publicada, duración, parte de la historia
@@ -29,6 +29,9 @@ Disponible en **español, inglés y francés**.
 - **Extinciones masivas y glaciaciones** dibujadas sobre la columna (rombos y barras) y listadas con su edad, incertidumbre,
   estado científico (ampliamente aceptado o en parte debatido) y los artículos de los que proceden: las cinco grandes
   extinciones, el Dryas Reciente, las glaciaciones huroniana, Sturtiense y Marinoense y la glaciación del Paleozoico tardío.
+- **Historia cósmica** del Big Bang a la Tierra, en escala de tiempo logarítmica y en el **calendario cósmico** (la edad del
+  universo como un año): tiempo de Planck, nucleosíntesis, igualdad materia-radiación, fondo cósmico de microondas, la galaxia
+  confirmada más lejana, reionización, la Vía Láctea, el Sistema Solar y la Luna, con enlaces a la sección geológica.
 - Una **curva climática del Cenozoico**: el registro de δ¹⁸O bentónico de los últimos 66 millones de años (CENOGRID, Westerhold et al. 2020),
   con los cuatro estados climáticos (Hothouse, Warmhouse, Coolhouse, Icehouse), las transiciones clave y lectura al pasar el cursor.
 - Una herramienta para **comparar** dos unidades a la misma escala, con la proporción entre sus duraciones.
@@ -71,7 +74,7 @@ Pila: Vite, TypeScript (estricto), Vitest. Sin dependencias en tiempo de ejecuci
 | v0.2 | Cenozoico hasta piso, definiciones GSSP de límites, herramienta de comparación |
 | v0.3 | Extinciones masivas y glaciaciones con fuentes |
 | v0.3.1 | Curva climática del Cenozoico (CENOGRID) y las glaciaciones del Cenozoico |
-| v0.4 | Historia cósmica (escala logarítmica y calendario cósmico) |
+| v0.4 | Historia cósmica (escala logarítmica y calendario cósmico) con eventos documentados |
 | v0.5 | Holoceno y humanidad (yacimientos del Pleistoceno, Atapuerca, Göbekli Tepe, civilizaciones) |
 | v0.6 | Modo aula: guía docente y cuestionarios |
 | v1.0 | Auditoría completa de fuentes y DOI de Zenodo |
