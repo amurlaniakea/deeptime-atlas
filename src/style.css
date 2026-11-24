@@ -227,3 +227,20 @@ a { color: inherit; text-underline-offset: 0.18em; }
 .cs-num { display: inline-flex; align-items: center; justify-content: center; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: #ffd166; color: #0c1020; font: 700 0.8rem var(--sans); }
 .cosmos-events .event summary { grid-template-columns: 26px 1fr auto; }
 @media (max-width: 760px) { .cosmos-events .event summary { grid-template-columns: 26px 1fr; } }
+
+/* ---- holocene and humankind ---- */
+.holo-section { margin-top: 3.5rem; scroll-margin-top: 1rem; }
+.ho-band-label { font: 600 13px var(--sans); }
+.ho-climate { fill: #8fd3ff; background: #8fd3ff; }
+.ho-human { fill: #ffd166; background: #ffd166; }
+.ho-anthro { fill: #ff8a65; background: #ff8a65; }
+.ho-dot { stroke: #0c1020; stroke-width: 1.5; }
+.ho-dot-debated { stroke: #ffffff; stroke-width: 2; stroke-dasharray: 3 2; }
+.ho-range { opacity: 0.95; stroke: #0c1020; stroke-width: 1; }
+.ho-hatch { fill: rgba(255, 138, 101, 0.28); stroke: #ff8a65; stroke-width: 1; stroke-dasharray: 4 3; }
+.ho-hatch-label { font: 600 12px var(--sans); fill: #0c1020; }
+.ho-key { display: inline-block; width: 14px; height: 14px; border-radius: 50%; border: 1px solid rgba(0, 0, 0, 0.5); }
+.cs-num.ho-climate, .cs-num.ho-human, .cs-num.ho-anthro { color: #0c1020; }
+.anthro-panel { margin: 1.4rem 0; padding: 1rem 1.2rem; background: var(--panel); border-left: 8px solid #ff8a65; max-width: 80ch; }
+.anthro-panel h3 { margin: 0 0 0.5rem; font: 700 1.25rem/1.3 var(--serif); }
+.anthro-panel p { margin: 0 0 0.7rem; }

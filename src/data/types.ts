@@ -138,3 +138,18 @@ export interface CosmicBand {
   names: Names;
   summary: Names;
 }
+
+/** Calendar years: BCE is negative (-9700 = 9700 BCE), CE positive. */
+export interface HoloEvent {
+  id: string;
+  kind: 'climate' | 'human' | 'anthropocene';
+  from: number;
+  to?: number;
+  approx?: boolean;
+  certainty: Certainty;
+  names: Names;
+  summary: Names;
+  /** Unit of the geological timescale to open from this event. */
+  link?: string;
+  sources: string[];
+}

@@ -144,7 +144,7 @@ export const BOUNDARIES: BoundaryDef[] = [
   },
   {
     id: 'base-holocene',
-    appliesTo: ['holocene'],
+    appliesTo: ['holocene', 'greenlandian'],
     marker: {
       es: 'Fin del enfriamiento del Dryas Reciente (Younger Dryas), reflejada en un cambio en los valores del exceso de deuterio, a 1492,45 m de profundidad en el sondeo NGRIP2.',
       en: 'End of the Younger Dryas cold spell, reflected in a shift in deuterium excess values, at 1492.45 m depth in borehole NGRIP2.',
@@ -158,5 +158,39 @@ export const BOUNDARIES: BoundaryDef[] = [
     ratified: 2008,
     reference: 'Episodes 31/2, 2008; J. Quaternary Sci. 24, p. 3-17, 2009',
     sources: G,
+  },
+  {
+    id: 'base-northgrippian',
+    appliesTo: ['northgrippian'],
+    marker: {
+      es: 'Evento climático de hace unos 8,2 ka (el evento de 8,2 ka), registrado en el testigo de hielo NGRIP1; datado en 8236 años antes de 2000 (b2k).',
+      en: 'Climatic event at about 8.2 ka (the 8.2 kiloyear event), recorded in the NGRIP1 ice core; dated to 8236 years before 2000 (b2k).',
+      fr: 'Événement climatique d’il y a environ 8,2 ka (l’événement à 8,2 ka), enregistré dans la carotte de glace NGRIP1 ; daté de 8236 ans avant 2000 (b2k).',
+    },
+    location: {
+      es: 'Testigo de hielo NGRIP1, Groenlandia',
+      en: 'NGRIP1 ice core, Greenland',
+      fr: 'Carotte de glace NGRIP1, Groenland',
+    },
+    ratified: 2018,
+    reference: 'Episodes 41(4), p. 213-223, 2018',
+    sources: ['walker2018'],
+  },
+  {
+    id: 'base-meghalayan',
+    appliesTo: ['meghalayan'],
+    marker: {
+      es: 'Evento climático de hace unos 4,2 ka (el evento de 4,2 ka), registrado en un espeleotema de la cueva de Mawmluh; datado en 4250 años antes de 2000 (b2k).',
+      en: 'Climatic event at about 4.2 ka (the 4.2 kiloyear event), recorded in a speleothem from Mawmluh Cave; dated to 4250 years before 2000 (b2k).',
+      fr: 'Événement climatique d’il y a environ 4,2 ka (l’événement à 4,2 ka), enregistré dans une spéléothème de la grotte de Mawmluh ; daté de 4250 ans avant 2000 (b2k).',
+    },
+    location: {
+      es: 'Cueva de Mawmluh, Meghalaya, noreste de la India',
+      en: 'Mawmluh Cave, Meghalaya, northeastern India',
+      fr: 'Grotte de Mawmluh, Meghalaya, nord-est de l’Inde',
+    },
+    ratified: 2018,
+    reference: 'Episodes 41(4), p. 213-223, 2018',
+    sources: ['walker2018'],
   },
 ];

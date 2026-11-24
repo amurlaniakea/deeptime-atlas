@@ -211,6 +211,70 @@ export const SOURCES: Source[] = [
     doi: '10.1126/sciadv.1602365',
     accessed: '2026-11-23',
   },
+  {
+    id: 'walker2018',
+    citation:
+      'Walker, M.J.C. et al. (2018). Formal ratification of the subdivision of the Holocene Series/Epoch (Quaternary System/Period): two new Global Boundary Stratotype Sections and Points (GSSPs) and three new stages/subseries. Episodes 41(4): 213-223.',
+    url: 'https://doi.org/10.18814/epiiugs/2018/018016',
+    doi: '10.18814/epiiugs/2018/018016',
+    accessed: '2026-11-23',
+  },
+  {
+    id: 'unesco-gobekli',
+    citation: 'UNESCO World Heritage Centre. Göbekli Tepe, World Heritage List no. 1572 (inscribed 2018).',
+    url: 'https://whc.unesco.org/en/list/1572/',
+    accessed: '2026-11-23',
+  },
+  {
+    id: 'antiquity-writing',
+    citation:
+      'Antiquity (Cambridge University Press). Seals and signs: tracing the origins of writing in ancient Southwest Asia.',
+    url: 'https://www.cambridge.org/core/journals/antiquity/article/seals-and-signs-tracing-the-origins-of-writing-in-ancient-southwest-asia/B3C2D400F3F80A7A0162D9035C9C2804',
+    accessed: '2026-11-23',
+  },
+  {
+    id: 'met-writing',
+    citation:
+      'The Metropolitan Museum of Art, Heilbrunn Timeline of Art History. The Origins of Writing.',
+    url: 'https://www.metmuseum.org/essays/the-origins-of-writing',
+    accessed: '2026-11-23',
+  },
+  {
+    id: 'steffen2015',
+    citation:
+      'Steffen, W., Broadgate, W., Deutsch, L., Gaffney, O. & Ludwig, C. (2015). The trajectory of the Anthropocene: The Great Acceleration. The Anthropocene Review 2(1): 81-98.',
+    url: 'https://doi.org/10.1177/2053019614564785',
+    doi: '10.1177/2053019614564785',
+    accessed: '2026-11-23',
+  },
+  {
+    id: 'iugs-ics-2024',
+    citation:
+      'IUGS and ICS (20 March 2024). Joint statement on the vote by the ICS Subcommission on Quaternary Stratigraphy (Anthropocene).',
+    url: 'https://stratigraphy.org/news/152',
+    accessed: '2026-11-23',
+  },
+  {
+    id: 'awg',
+    citation:
+      'Anthropocene Working Group (legacy page of a former working group of the Subcommission on Quaternary Stratigraphy).',
+    url: 'https://quaternary.stratigraphy.org/working-groups/anthropocene',
+    accessed: '2026-11-23',
+  },
+  {
+    id: 'eos2024',
+    citation: 'Rodrigues, M. (2024). What\'s next for the Anthropocene? Eos 105.',
+    url: 'https://doi.org/10.1029/2024EO240178',
+    doi: '10.1029/2024EO240178',
+    accessed: '2026-11-23',
+  },
+  {
+    id: 'nree2026',
+    citation: 'The Anthropocene debate. Nature Reviews Earth & Environment (2026).',
+    url: 'https://doi.org/10.1038/s43017-026-00829-4',
+    doi: '10.1038/s43017-026-00829-4',
+    accessed: '2026-11-23',
+  },
 ];
 
 export const SOURCES_BY_ID: ReadonlyMap<string, Source> = new Map(SOURCES.map((s) => [s.id, s]));

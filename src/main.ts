@@ -8,6 +8,7 @@ import cenogrid from './data/cenogrid.json';
 import type { CenogridFile } from './data/types';
 import { mountClimate } from './ui/climate';
 import { mountCosmos } from './ui/cosmos';
+import { mountHolocene } from './ui/holocene';
 import { mountCompare } from './ui/compare';
 import { mountExplorer } from './ui/explorer';
 
@@ -85,8 +86,9 @@ function render(): void {
     a.href = href;
     nav.append(a);
   }
-  const soon = h('span', 'nav-soon', `${dict['nav.holocene']} (${dict['status.planned'].replace('{v}', 'v0.5')})`);
-  nav.append(soon);
+  const holoLink = h('a', undefined, dict['nav.holocene']);
+  holoLink.href = '#holocene';
+  nav.append(holoLink);
   header.append(nav);
 
   const main = h('main');
@@ -112,6 +114,12 @@ function render(): void {
   const climateHost = h('div', 'climate-box');
   climateSection.append(climateHost);
 
+  const holoSection = h('section', 'holo-section');
+  holoSection.id = 'holocene';
+  holoSection.append(h('h2', 'section-title', dict['holo.title']), h('p', 'hint', dict['holo.hint']));
+  const holoHost = h('div', 'cosmos-box');
+  holoSection.append(holoHost);
+
   const parts = h('section', 'parts');
   parts.append(
     h('h2', 'section-title', dict['parts.title']),
@@ -120,10 +128,10 @@ function render(): void {
   grid.append(
     part(dict, 'cosmos', dict['status.available'], '#4B3A9E'),
     part(dict, 'earth', dict['status.available'], '#34B2C9'),
-    part(dict, 'holocene', dict['status.planned'].replace('{v}', 'v0.5'), '#F2B84B'),
+    part(dict, 'holocene', dict['status.available'], '#F2B84B'),
   );
   parts.append(grid);
-  main.append(cosmosSection, explorerSection, compareSection, climateSection, parts);
+  main.append(cosmosSection, explorerSection, compareSection, climateSection, holoSection, parts);
 
   const footer = h('footer', 'site-footer');
   const links = h('p');
@@ -138,6 +146,11 @@ function render(): void {
     window.location.hash = unitId;
     window.setTimeout(() => document.getElementById('explorer')?.scrollIntoView({ behavior: 'smooth' }), 60);
   });
+  const openUnit = (unitId: string): void => {
+    window.location.hash = unitId;
+    window.setTimeout(() => document.getElementById('explorer')?.scrollIntoView({ behavior: 'smooth' }), 60);
+  };
+  mountHolocene(holoHost, tree, lang, dict, openUnit);
   mountCompare(compareHost, tree, lang, dict, ['cenozoic', 'mesozoic']);
   mountClimate(climateHost, tree, lang, dict, cenogrid as unknown as CenogridFile);
   mountExplorer(explorerHost, {
