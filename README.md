@@ -17,9 +17,9 @@ Available in **Spanish, English and French**.
 |---|---|---|
 | Cosmic history | From the Big Bang to the Solar System and the Earth | **available (v0.4)** |
 | Geological time | Eons, eras, periods and epochs; mass extinctions; glaciations | **available**: column, Big Five extinctions, glaciations and the Cenozoic climate curve |
-| Holocene and humankind | Close-up of the present epoch, its three ages, milestones of human history and the Anthropocene debate | **available (v0.5)**; the Pleistocene hominin record is planned for v0.6 |
+| Holocene and humankind | Close-up of the present epoch, its three ages, milestones of human history and the Anthropocene debate | **available (v0.5)**; human origins (hominin fossil sites) **available (v0.6)** |
 
-## What it does (v0.5)
+## What it does (v0.6)
 
 - A stratigraphic column **drawn to scale**: click a layer to zoom from eon to era, period, epoch and age.
 - For every unit: begin and end ages with the published uncertainty, duration, share of Earth history
@@ -29,6 +29,9 @@ Available in **Spanish, English and French**.
 - **Mass extinctions and glaciations** drawn on the column (diamonds and bars) and listed with their age, uncertainty,
   scientific status (broadly accepted or partly debated) and the papers they come from: the Big Five extinctions, the Younger Dryas,
   the Huronian, Sturtian and Marinoan glaciations and the Late Paleozoic Ice Age.
+- **Human origins**: an interactive map of 12 key hominin fossil sites (Toumaï, Ardi, Lucy, Ledi-Geraru, Dmanisi, three sites of
+  **Atapuerca**, Jebel Irhoud, Homo naledi, Omo Kibish and Liang Bua) with the age of each find, the species given by the source and the
+  papers behind it, plus a chart of how old the finds are (linear or logarithmic).
 - **The Holocene and humankind**: its three ages (Greenlandian, Northgrippian, Meghalayan) with the climate events that define them,
   milestones such as Göbekli Tepe and the first writing, the Great Acceleration, and an explanation of why the Anthropocene is
   **not** a formal geological unit (IUGS/ICS statement of 20 March 2024) while the scientific debate continues.
@@ -79,9 +82,16 @@ Stack: Vite, TypeScript (strict), Vitest. No runtime dependencies.
 | v0.3.1 | Cenozoic climate curve (CENOGRID) and the Cenozoic icehouse |
 | v0.4 | Cosmic history (logarithmic scale and cosmic calendar) with sourced events |
 | v0.5 | Holocene and humankind: ages, climate events, human milestones, Anthropocene debate |
-| v0.6 | Pleistocene hominin record: map of fossil sites (Atapuerca and others), human evolution timeline |
+| v0.6 | Human origins: map of hominin fossil sites (Atapuerca and others) with sourced ages |
 | v0.7 | Classroom mode: teaching guide and quizzes |
 | v1.0 | Full source audit and Zenodo DOI |
+
+## Data credits
+
+- Geological time scale: ICS International Chronostratigraphic Chart v2024/12.
+- Benthic δ¹⁸O series: CENOGRID, Westerhold et al. (2020), PANGAEA, CC BY 4.0 (values selected, not altered).
+- Land outline of the hominin map: Natural Earth (public domain), simplified.
+- All other numbers are cited next to each entry in the atlas and in `src/data/sources.ts`.
 
 ## How to cite
 

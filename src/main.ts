@@ -9,6 +9,7 @@ import type { CenogridFile } from './data/types';
 import { mountClimate } from './ui/climate';
 import { mountCosmos } from './ui/cosmos';
 import { mountHolocene } from './ui/holocene';
+import { mountHominins } from './ui/hominins';
 import { mountCompare } from './ui/compare';
 import { mountExplorer } from './ui/explorer';
 
@@ -86,6 +87,9 @@ function render(): void {
     a.href = href;
     nav.append(a);
   }
+  const homLink = h('a', undefined, dict['nav.hominins']);
+  homLink.href = '#hominins';
+  nav.append(homLink);
   const holoLink = h('a', undefined, dict['nav.holocene']);
   holoLink.href = '#holocene';
   nav.append(holoLink);
@@ -114,6 +118,12 @@ function render(): void {
   const climateHost = h('div', 'climate-box');
   climateSection.append(climateHost);
 
+  const homSection = h('section', 'hom-section');
+  homSection.id = 'hominins';
+  homSection.append(h('h2', 'section-title', dict['hom.title']), h('p', 'hint', dict['hom.hint']));
+  const homHost = h('div', 'cosmos-box');
+  homSection.append(homHost);
+
   const holoSection = h('section', 'holo-section');
   holoSection.id = 'holocene';
   holoSection.append(h('h2', 'section-title', dict['holo.title']), h('p', 'hint', dict['holo.hint']));
@@ -131,7 +141,7 @@ function render(): void {
     part(dict, 'holocene', dict['status.available'], '#F2B84B'),
   );
   parts.append(grid);
-  main.append(cosmosSection, explorerSection, compareSection, climateSection, holoSection, parts);
+  main.append(cosmosSection, explorerSection, compareSection, climateSection, homSection, holoSection, parts);
 
   const footer = h('footer', 'site-footer');
   const links = h('p');
@@ -150,6 +160,7 @@ function render(): void {
     window.location.hash = unitId;
     window.setTimeout(() => document.getElementById('explorer')?.scrollIntoView({ behavior: 'smooth' }), 60);
   };
+  mountHominins(homHost, tree, lang, dict, openUnit);
   mountHolocene(holoHost, tree, lang, dict, openUnit);
   mountCompare(compareHost, tree, lang, dict, ['cenozoic', 'mesozoic']);
   mountClimate(climateHost, tree, lang, dict, cenogrid as unknown as CenogridFile);

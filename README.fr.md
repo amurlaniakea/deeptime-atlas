@@ -17,9 +17,9 @@ Disponible en **espagnol, anglais et français**.
 |---|---|---|
 | Histoire cosmique | Du Big Bang au Système solaire et à la Terre | **disponible (v0.4)** |
 | Temps géologique | Éons, ères, périodes et époques ; extinctions de masse ; glaciations | **disponible** : colonne, cinq grandes extinctions, glaciations et courbe climatique du Cénozoïque |
-| Holocène et humanité | Zoom sur l'époque actuelle, ses trois âges, des jalons de l'histoire humaine et le débat sur l'Anthropocène | **disponible (v0.5)** ; le registre des homininés du Pléistocène est prévu en v0.6 |
+| Holocène et humanité | Zoom sur l'époque actuelle, ses trois âges, des jalons de l'histoire humaine et le débat sur l'Anthropocène | **disponible (v0.5)** ; origines humaines (sites d'hominines) **disponible (v0.6)** |
 
-## Ce que fait l'atlas (v0.5)
+## Ce que fait l'atlas (v0.6)
 
 - Une colonne stratigraphique **à l'échelle** : cliquez sur une couche pour passer de l'éon à l'ère, la période, l'époque et l'âge.
 - Pour chaque unité : âges de début et de fin avec l'incertitude publiée, durée, part de l'histoire de la Terre
@@ -29,6 +29,9 @@ Disponible en **espagnol, anglais et français**.
 - **Extinctions de masse et glaciations** dessinées sur la colonne (losanges et barres) et listées avec leur âge, leur incertitude,
   leur statut scientifique (largement admis ou en partie débattu) et les articles dont elles proviennent : les cinq grandes
   extinctions, le Dryas récent, les glaciations huronienne, sturtienne et marinoenne et la glaciation du Paléozoïque supérieur.
+- **Origines humaines** : une carte interactive de 12 sites clés d'hominines (Toumaï, Ardi, Lucy, Ledi-Geraru, Dmanissi, trois sites d'
+  **Atapuerca**, Jebel Irhoud, Homo naledi, Omo Kibish et Liang Bua) avec l'âge de chaque découverte, l'espèce donnée par la source et les
+  articles qui l'étayent, ainsi qu'un graphique des âges (linéaire ou logarithmique).
 - **L'Holocène et l'humanité** : ses trois âges (Groenlandien, Norgrippien, Meghalayen) avec les événements climatiques qui les définissent,
   des jalons comme Göbekli Tepe et la première écriture, la Grande Accélération, et une explication de pourquoi l'Anthropocène
   **n'est pas** une unité géologique formelle (communiqué de l'IUGS et de l'ICS du 20 mars 2024) alors que le débat scientifique se poursuit.
@@ -79,9 +82,16 @@ Pile : Vite, TypeScript (strict), Vitest. Aucune dépendance à l'exécution.
 | v0.3.1 | Courbe climatique du Cénozoïque (CENOGRID) et glaciations du Cénozoïque |
 | v0.4 | Histoire cosmique (échelle logarithmique et calendrier cosmique) avec événements sourcés |
 | v0.5 | Holocène et humanité : âges, événements climatiques, jalons humains, débat sur l'Anthropocène |
-| v0.6 | Registre des homininés du Pléistocène : carte des sites (Atapuerca et autres), frise de l'évolution humaine |
+| v0.6 | Origines humaines : carte des sites d'hominines (Atapuerca et autres) avec âges sourcés |
 | v0.7 | Mode classe : guide pédagogique et quiz |
 | v1.0 | Audit complet des sources et DOI Zenodo |
+
+## Crédits des données
+
+- Échelle des temps géologiques : charte chronostratigraphique internationale de l'ICS, v2024/12.
+- Série de δ¹⁸O benthique : CENOGRID, Westerhold et al. (2020), PANGAEA, CC BY 4.0 (valeurs sélectionnées, non modifiées).
+- Contour des terres de la carte des hominines : Natural Earth (domaine public), simplifié.
+- Tous les autres chiffres sont cités à côté de chaque entrée de l'atlas et dans `src/data/sources.ts`.
 
 ## Comment citer
 

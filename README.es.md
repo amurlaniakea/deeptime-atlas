@@ -17,9 +17,9 @@ Disponible en **español, inglés y francés**.
 |---|---|---|
 | Historia cósmica | Del Big Bang al Sistema Solar y la Tierra | **disponible (v0.4)** |
 | Tiempo geológico | Eones, eras, periodos y épocas; extinciones masivas; glaciaciones | **disponible**: columna, cinco grandes extinciones, glaciaciones y la curva climática del Cenozoico |
-| Holoceno y humanidad | Zoom a la época actual, sus tres edades, hitos de la historia humana y el debate del Antropoceno | **disponible (v0.5)**; el registro de homínidos del Pleistoceno está previsto para la v0.6 |
+| Holoceno y humanidad | Zoom a la época actual, sus tres edades, hitos de la historia humana y el debate del Antropoceno | **disponible (v0.5)**; orígenes humanos (yacimientos de homíninos) **disponible (v0.6)** |
 
-## Qué hace (v0.5)
+## Qué hace (v0.6)
 
 - Una columna estratigráfica **a escala**: pulsa una capa para pasar de eón a era, periodo, época y edad.
 - Para cada unidad: edades de inicio y fin con la incertidumbre publicada, duración, parte de la historia
@@ -29,6 +29,9 @@ Disponible en **español, inglés y francés**.
 - **Extinciones masivas y glaciaciones** dibujadas sobre la columna (rombos y barras) y listadas con su edad, incertidumbre,
   estado científico (ampliamente aceptado o en parte debatido) y los artículos de los que proceden: las cinco grandes
   extinciones, el Dryas Reciente, las glaciaciones huroniana, Sturtiense y Marinoense y la glaciación del Paleozoico tardío.
+- **Orígenes humanos**: un mapa interactivo de 12 yacimientos clave de homíninos (Toumaï, Ardi, Lucy, Ledi-Geraru, Dmanisi, tres yacimientos de
+  **Atapuerca**, Jebel Irhoud, Homo naledi, Omo Kibish y Liang Bua) con la edad de cada hallazgo, la especie que da la fuente y los
+  artículos que la respaldan, más un gráfico de las edades (lineal o logarítmico).
 - **El Holoceno y la humanidad**: sus tres edades (Groenlandiense, Norgripiense, Megalayense) con los eventos climáticos que las definen,
   hitos como Göbekli Tepe y la primera escritura, la Gran Aceleración, y una explicación de por qué el Antropoceno
   **no** es una unidad geológica formal (comunicado de la IUGS y la ICS del 20 de marzo de 2024) aunque el debate científico continúa.
@@ -79,9 +82,16 @@ Pila: Vite, TypeScript (estricto), Vitest. Sin dependencias en tiempo de ejecuci
 | v0.3.1 | Curva climática del Cenozoico (CENOGRID) y las glaciaciones del Cenozoico |
 | v0.4 | Historia cósmica (escala logarítmica y calendario cósmico) con eventos documentados |
 | v0.5 | Holoceno y humanidad: edades, eventos climáticos, hitos humanos, debate del Antropoceno |
-| v0.6 | Registro de homínidos del Pleistoceno: mapa de yacimientos (Atapuerca y otros), línea de la evolución humana |
+| v0.6 | Orígenes humanos: mapa de yacimientos de homíninos (Atapuerca y otros) con edades documentadas |
 | v0.7 | Modo aula: guía docente y cuestionarios |
 | v1.0 | Auditoría completa de fuentes y DOI de Zenodo |
+
+## Créditos de los datos
+
+- Escala de tiempo geológico: Carta Cronoestratigráfica Internacional de la ICS, v2024/12.
+- Serie de δ¹⁸O bentónico: CENOGRID, Westerhold et al. (2020), PANGAEA, CC BY 4.0 (valores seleccionados, no modificados).
+- Contorno de tierras del mapa de homíninos: Natural Earth (dominio público), simplificado.
+- Todas las demás cifras se citan junto a cada entrada del atlas y en `src/data/sources.ts`.
 
 ## Cómo citar
 

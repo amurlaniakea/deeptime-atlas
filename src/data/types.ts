@@ -153,3 +153,23 @@ export interface HoloEvent {
   link?: string;
   sources: string[];
 }
+
+/** A hominin fossil site. Ages in Ma (older bound in `from`). */
+export interface HomininSite {
+  id: string;
+  /** Scientific name(s) as given by the source; not translated. */
+  taxa: string;
+  place: Names;
+  country: Names;
+  lat: number;
+  lon: number;
+  /** 'paper' and 'unesco' coordinates come from a cited source; 'approx' are approximate (about 0.1 degree). */
+  coords: 'paper' | 'unesco' | 'approx';
+  age: { from: number; to?: number; err?: number; minimum?: boolean; approx?: boolean };
+  certainty: Certainty;
+  names: Names;
+  summary: Names;
+  /** Unit of the geological timescale that contains the age. */
+  link: string;
+  sources: string[];
+}

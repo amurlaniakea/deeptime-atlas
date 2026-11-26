@@ -275,6 +275,142 @@ export const SOURCES: Source[] = [
     doi: '10.1038/s43017-026-00829-4',
     accessed: '2026-11-23',
   },
+  {
+    id: 'lebatard2008',
+    citation:
+      'Lebatard, A.-E. et al. (2008). Cosmogenic nuclide dating of Sahelanthropus tchadensis and Australopithecus bahrelghazali: Mio-Pliocene hominids from Chad. PNAS 105(9): 3226-3231.',
+    url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC2265126',
+    accessed: '2026-11-24',
+  },
+  {
+    id: 'nature-edu-earliest-hominins',
+    citation:
+      'Nature Education Knowledge. The Earliest Hominins: Sahelanthropus, Orrorin, and Ardipithecus.',
+    url: 'https://www.nature.com/scitable/knowledge/library/the-earliest-hominins-sahelanthropus-orrorin-and-ardipithecus-67648286',
+    accessed: '2026-11-24',
+  },
+  {
+    id: 'white2009',
+    citation:
+      'White, T.D. et al. (2009). Ardipithecus ramidus and the paleobiology of early hominids. Science 326(5949): 75-86.',
+    url: 'https://doi.org/10.1126/science.1175802',
+    doi: '10.1126/science.1175802',
+    accessed: '2026-11-24',
+  },
+  {
+    id: 'iho-lucy',
+    citation:
+      'Institute of Human Origins, Arizona State University. Lucy\'s Story (age of the Hadar Formation levels after Walter, R.C. (1994), Geology 22: 6-10).',
+    url: 'https://iho.asu.edu/node/15',
+    accessed: '2026-11-24',
+  },
+  {
+    id: 'villmoare2015',
+    citation:
+      'Villmoare, B. et al. (2015). Early Homo at 2.8 Ma from Ledi-Geraru, Afar, Ethiopia. Science 347(6228): 1352-1355.',
+    url: 'https://doi.org/10.1126/science.aaa1343',
+    doi: '10.1126/science.aaa1343',
+    accessed: '2026-11-24',
+  },
+  {
+    id: 'lordkipanidze2013',
+    citation:
+      'Lordkipanidze, D. et al. (2013). A complete skull from Dmanisi, Georgia, and the evolutionary biology of early Homo. Science 342(6156): 326-331.',
+    url: 'https://doi.org/10.1126/science.1238484',
+    doi: '10.1126/science.1238484',
+    accessed: '2026-11-24',
+  },
+  {
+    id: 'ferring2011',
+    citation:
+      'Ferring, R. et al. (2011). Earliest human occupations at Dmanisi (Georgian Caucasus) dated to 1.85-1.78 Ma. PNAS 108(26).',
+    url: 'https://agris.fao.org/search/en/records/65dfa0147c7033e84bee9a49',
+    accessed: '2026-11-24',
+  },
+  {
+    id: 'unesco-atapuerca',
+    citation:
+      'UNESCO World Heritage Centre. Archaeological Site of Atapuerca, World Heritage List no. 989 (inscribed 2000).',
+    url: 'https://whc.unesco.org/en/list/989/',
+    accessed: '2026-11-24',
+  },
+  {
+    id: 'carbonell2008',
+    citation:
+      'Carbonell, E. et al. (2008). The first hominin of Europe. Nature 452: 465-469.',
+    url: 'https://doi.org/10.1038/nature06815',
+    doi: '10.1038/nature06815',
+    accessed: '2026-11-24',
+  },
+  {
+    id: 'welker2020',
+    citation:
+      'Welker, F. et al. (2020). The dental proteome of Homo antecessor. Nature 580: 235-238.',
+    url: 'https://repositori.upf.edu/items/6b44f9d2-6703-4dcc-84dd-41b776f65096',
+    accessed: '2026-11-24',
+  },
+  {
+    id: 'arsuaga2014',
+    citation:
+      'Arsuaga, J.L. et al. (2014). Neandertal roots: cranial and chronological evidence from Sima de los Huesos. Science 344(6190): 1358-1363.',
+    url: 'https://eprints.ucm.es/id/eprint/64123/',
+    accessed: '2026-11-24',
+  },
+  {
+    id: 'meyer2016',
+    citation:
+      'Meyer, M. et al. (2016). Nuclear DNA sequences from the Middle Pleistocene Sima de los Huesos hominins. Nature 531: 504-507.',
+    url: 'https://doi.org/10.1038/nature17405',
+    doi: '10.1038/nature17405',
+    accessed: '2026-11-24',
+  },
+  {
+    id: 'hublin2017',
+    citation:
+      'Hublin, J.-J. et al. (2017). New fossils from Jebel Irhoud, Morocco and the pan-African origin of Homo sapiens. Nature 546: 289-292.',
+    url: 'https://doi.org/10.1038/nature22336',
+    doi: '10.1038/nature22336',
+    accessed: '2026-11-24',
+  },
+  {
+    id: 'richter2017',
+    citation:
+      'Richter, D. et al. (2017). The age of the hominin fossils from Jebel Irhoud, Morocco, and the origins of the Middle Stone Age. Nature 546: 293-296.',
+    url: 'https://doi.org/10.1038/nature22335',
+    doi: '10.1038/nature22335',
+    accessed: '2026-11-24',
+  },
+  {
+    id: 'berger2017',
+    citation:
+      'Berger, L.R. et al. (2017). Homo naledi and Pleistocene hominin evolution in subequatorial Africa. eLife 6: e24234.',
+    url: 'https://doi.org/10.7554/eLife.24234',
+    doi: '10.7554/eLife.24234',
+    accessed: '2026-11-24',
+  },
+  {
+    id: 'vidal2022',
+    citation:
+      'Vidal, C.M. et al. (2022). Age of the oldest known Homo sapiens from eastern Africa. Nature 601: 579-583.',
+    url: 'https://doi.org/10.1038/s41586-021-04275-8',
+    doi: '10.1038/s41586-021-04275-8',
+    accessed: '2026-11-24',
+  },
+  {
+    id: 'sutikna2016',
+    citation:
+      'Sutikna, T. et al. (2016). Revised stratigraphy and chronology for Homo floresiensis at Liang Bua in Indonesia. Nature 532: 366-369.',
+    url: 'https://doi.org/10.1038/nature17179',
+    doi: '10.1038/nature17179',
+    accessed: '2026-11-24',
+  },
+  {
+    id: 'natural-earth',
+    citation:
+      'Natural Earth. Land polygons 1:50m (public domain), distributed in the npm package world-atlas.',
+    url: 'https://www.naturalearthdata.com/',
+    accessed: '2026-11-24',
+  },
 ];
 
 export const SOURCES_BY_ID: ReadonlyMap<string, Source> = new Map(SOURCES.map((s) => [s.id, s]));
